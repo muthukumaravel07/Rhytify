@@ -13,6 +13,7 @@ import {MaterialModule } from './material';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './token/token-interceptor.service';
 import { Page3Component } from './page3/page3.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
       AppComponent,
       LoginComponent,
       Page2Component,
-      Page3Component
+      Page3Component,
+      HomeComponent
     ],
     imports: 
     [

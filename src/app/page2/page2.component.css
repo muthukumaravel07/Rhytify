@@ -1,20 +1,10 @@
-/* mat-toolbar 
-{
-  color: rgb(255, 255, 255);
-  background-color: rgba(80, 98, 255, 0.144)
-}
-.Settings-button
-{
-  position: absolute;
-  right: 0;
-} */
-
 mat-toolbar {
   color: rgb(255, 255, 255);
-  background-color: rgba(80, 98, 255, 0.144)
+  background-color: rgb(14, 86, 168)
 }
 
 .settings-icon {
 position: absolute;
 right: 10px;
 }
+

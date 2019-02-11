@@ -24,23 +24,27 @@ export class LoginComponent implements OnInit
   officeControl = new FormControl('', [Validators.required]);
 
   office: Office[] = [
-    {name: 'Corporate / Head Office'},
-    {name: 'ValueLabs SEZ'},
-    {name: 'ValueLabs Solution'},
-    {name: 'ValueLabs Technologies Unit -1'},
-    {name: 'ValueLabs Technologies Unit -2'},
-    {name: 'ValueLabs Technologies -LLP'},
-    {name: 'PHP / Cebu Office'}
+    {name: 'GroupO'},
+    {name: 'ValueLabs'},
+    {name: 'UAL'},
+    {name: 'Snapfish'},
+    {name: 'UTMSDEMO'}
   ];
   
   projectControl = new FormControl('', [Validators.required]);
 
-  project: Office[] = [
-    {name: 'Rhytrify'},
-    {name: 'TFS'},
-    {name: 'GIT'},
-    {name: 'SVN'},
-    {name: 'UTMS'}
+  GroupO: Office[] = [
+    {name: 'Samsung_Delta'},
+    {name: 'GroupO_Demo'}
+  ];  
+  ValueLabs: Office[] = [
+    {name: 'RhytrifyServiceAPI'},
+    {name: 'Rhytrify'}
+  ];
+  UTMSDEMO: Office[] = [
+    {name: 'selenium'},
+    {name: 'TAF_QA'},
+    {name: 'JIRA Functionality'}
   ];
   
   model = {

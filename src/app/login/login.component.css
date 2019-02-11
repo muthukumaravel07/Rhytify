@@ -1,5 +1,6 @@
 .main-div
 {
+  background: #eee url(../../assets/BG.jpg) no-repeat fixed center;
   height: 100%;
   display: flex;
   justify-content: center;
