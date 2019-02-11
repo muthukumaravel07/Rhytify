@@ -1,0 +1,39 @@
+
+.one
+{
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.space
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 20px
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardList > *:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.host {
+  display: block;
+  padding: 32px;
+  border-radius: 8px;
+}
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

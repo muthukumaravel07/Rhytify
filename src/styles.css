@@ -1,0 +1,28 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body
+{
+  background: #eee url(./assets/BG.jpg) no-repeat fixed center;
+}
+html,body
+{
+    position: relative;
+    height: 100%;
+}
+::-webkit-scrollbar 
+{
+    width: 5px;
+}
+::-webkit-scrollbar-track 
+{
+  background: rgb(126, 126, 126); 
+}
+::-webkit-scrollbar-thumb 
+{
+  background: rgb(80, 80, 80); 
+}
+::-webkit-scrollbar-thumb:hover 
+{
+  background: rgb(48, 48, 48); 
+}

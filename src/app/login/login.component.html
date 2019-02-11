@@ -1,0 +1,71 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <div class="avatar">
+      <img class="img" src="./assets/avathar.png">
+    </div>
+    <mat-card-header>
+      <mat-card-title>
+        Login Form
+      </mat-card-title>
+      <mat-card-subtitle>
+        Enter the Login Credentials
+      </mat-card-subtitle>
+    </mat-card-header>
+    <form #loginForm="ngForm" class="example-form">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label><mat-icon matSuffix class='left'>pin_drop</mat-icon>&nbsp;&nbsp;&nbsp;Company Location</mat-label>
+        <mat-select [(value)]="model.companyLocation"  [formControl]="officeControl" required>
+          <mat-option>--Select--</mat-option>
+          <mat-option value="{{offices.name}}"  *ngFor="let offices of office" [value]="office">
+            {{offices.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="officeControl.hasError('required')">Please choose a Company Location</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label><mat-icon matSuffix class='left'>assignment</mat-icon>&nbsp;&nbsp;&nbsp;Project</mat-label>
+          <div *ngIf="!model.companyLocation">
+          <mat-select disabled ="disabled"  [(value)]="model.project"  [formControl]="projectControl" required>
+            <mat-option>--Select--</mat-option>
+            <mat-option value="{{projects.name}}"  *ngFor="let projects of project" [value]="project">
+              {{projects.name}}
+            </mat-option>
+          </mat-select>
+          </div>  
+          <div *ngIf="model.companyLocation">
+            <mat-select [(value)]="model.project"  [formControl]="projectControl" required>
+              <mat-option>--Select--</mat-option>
+              <mat-option value="{{projects.name}}"  *ngFor="let projects of project" [value]="project">
+                {{projects.name}}
+              </mat-option>
+            </mat-select>
+          </div>  
+        <mat-error *ngIf="projectControl.hasError('required')">Please choose an Project</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label><mat-icon matSuffix class='left'>supervised_user_circle</mat-icon>&nbsp;&nbsp;&nbsp;User Name</mat-label>
+        <input [(ngModel)]='model.username' name="uid" required matInput [formControl]="emailFormControl" >
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width"  appearance="outline">
+        <mat-label><mat-icon matSuffix class='left'>lock</mat-icon>&nbsp;&nbsp;&nbsp;Password</mat-label>
+        <input  [(ngModel)]='model.password' name="password" matInput placeholder="Password" [formControl]="passFormControl" [type]="hide ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="passFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <div *ngIf="!model.username || !model.password || !model.companyLocation || !model.project">
+        <button [disabled]="loginForm.valid" mat-raised-button class="a">Login</button>
+      </div>
+      <div *ngIf="model.username && model.password && model.companyLocation && model.project">
+        <button [disabled]="!loginForm.valid" mat-raised-button class="a" color="primary" (click)="sendReq()">Login</button>
+      </div>
+    </form> 
+  </mat-card>  
+</div>

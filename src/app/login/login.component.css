@@ -1,0 +1,62 @@
+.main-div
+{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-form 
+{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+  
+.example-full-width 
+{
+  width: 100%;
+}
+
+.a
+{
+  float: right;
+}
+  
+.example-card 
+{
+  position: relative;
+ 
+}
+  
+.avatar
+{
+  position: relative;
+  top: -0%;
+  left: 21%;
+  justify-content: center;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 200px;height: 200px;
+  margin: 0px auto -75px;
+  border-radius: 100%;
+  border: 2px solid #aaa;
+  background-size: cover;
+}
+
+.img 
+{
+  border-radius: 100%;
+  max-width: 200px;height: 200px;
+}
+
+.left 
+{
+  float: left;
+}
+  
+
+
+
+
+  

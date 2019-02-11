@@ -1,0 +1,48 @@
+
+
+<!-- <mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon >memory</mat-icon>RHYTIFY</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="fun()">CONFIGURATIONS</button>
+    <button mat-menu-item>PAGE 3</button>
+  </mat-menu>
+  <button mat-button> <mat-icon >polymer</mat-icon> VISUALIZATION</button>
+  <button mat-button> <mat-icon>person</mat-icon> TRACEABILITY</button>
+  <button mat-button> <mat-icon>show_chart</mat-icon> IMPACT ANALYSIS</button>
+  <button mat-button class="Settings-button"><mat-icon>settings</mat-icon></button> 
+</mat-toolbar>
+<page3 *ngIf=name></page3> -->
+
+
+<mat-toolbar >
+    <div fxShow="true" fxHide.gt-sm="true">
+            <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+             </button>
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="menu">RHYTIFY</button>
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item>HOME</button>
+      <button mat-menu-item (click)="fun()">CONFIGURATION</button>
+    </mat-menu>
+
+
+    <div fxShow="true" fxHide.lt-md="true">
+    <button mat-button> <mat-icon >polymer</mat-icon> VISUALIZATION</button>
+    <button mat-button> <mat-icon>person</mat-icon> TRACEABILITY</button>
+    <button mat-button> <mat-icon>show_chart</mat-icon> IMPACT ANALYSIS</button>
+    </div>
+    <button mat-button class="settings-icon"> <mat-icon>settings</mat-icon></button>
+
+</mat-toolbar>
+<mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+<div fxLayout="column">
+    
+    <button mat-button> <mat-icon svgIcon="icon-v"></mat-icon> VISUALIZATION</button>
+    <button mat-button> <mat-icon>person</mat-icon> TRACEABILITY</button>
+    <button mat-button> <mat-icon>show_chart</mat-icon> IMPACT ANALYSIS</button>
+</div>
+</mat-sidenav><br><br>
+<page3 *ngIf=name></page3>
+
