@@ -14,11 +14,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'page3',
-  templateUrl: './page3.component.html',
-  styleUrls: ['./page3.component.css']
+  selector: 'configuration',
+  templateUrl: './configuration.component.html',
+  styleUrls: ['./configuration.component.css']
 })
-export class Page3Component implements OnInit {
+export class ConfigurationComponent implements OnInit {
 
   /* cardDetails: CardDetails[] = [
     {

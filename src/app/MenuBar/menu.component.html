@@ -1,4 +1,5 @@
-<div>
+<router-outlet></router-outlet>
+<div class="navbar">
     <mat-toolbar >
     <div fxShow="true" fxHide.gt-sm="true">
             <button mat-icon-button (click)="sidenav.toggle()">
@@ -8,8 +9,8 @@
 
     <button mat-button [matMenuTriggerFor]="menu">RHYTIFY</button>
     <mat-menu #menu="matMenu" >
-      <button mat-menu-item >HOME</button>
-      <button mat-menu-item (click)="fun()">CONFIGURATION</button>
+      <button mat-menu-item routerLink="/menu/home">HOME</button>
+      <button mat-menu-item routerLink="/menu/configuration">CONFIGURATION</button>
     </mat-menu>
 
 
@@ -19,9 +20,6 @@
                     <mat-menu #menu2="matMenu">
                         <button mat-menu-item>EXECUTION</button>
                     </mat-menu>
-            <!-- <button mat-button> <mat-icon >polymer</mat-icon> VISUALIZATION</button> -->
-            <!-- <button mat-button> <mat-icon>person</mat-icon> TRACEABILITY</button> -->
-            <!--  <button mat-button> <mat-icon>show_chart</mat-icon> IMPACT ANALYSIS</button> -->
             <button mat-button [matMenuTriggerFor]="menu3">
                 <mat-icon>person</mat-icon> TRACEABILITY
             </button>
@@ -48,10 +46,6 @@
 </mat-toolbar>
 <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
 <div fxLayout="column">
-    
-    <!-- <button mat-button> <mat-icon svgIcon="icon-v"></mat-icon> VISUALIZATION</button>
-    <button mat-button> <mat-icon>person</mat-icon> TRACEABILITY</button>
-    <button mat-button> <mat-icon>show_chart</mat-icon> IMPACT ANALYSIS</button> -->
     <button mat-button [matMenuTriggerFor]="menu2">
             <mat-icon>polymer</mat-icon> VISUALIZATION</button>
             <mat-menu #menu2="matMenu">
@@ -78,9 +72,4 @@
         </mat-menu>
 </div>
 </mat-sidenav><br><br>
-
-        <home *ngIf="first || !name"></home>   
-
-        <page3 *ngIf="name"></page3>
-
 </div>

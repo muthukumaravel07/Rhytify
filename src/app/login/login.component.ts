@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit
           {
             console.log('Paramaters successfully passed and response received');
             this.cookieService.set( 'jwtToken', success.token );
-            this.router.navigate(['/page2']);
+            this.router.navigate(['/menu/home']);
           } 
           else 
           {
