@@ -1,37 +1,53 @@
 <router-outlet></router-outlet>
+<!-- header -->
 <div class="navbar">
-    <mat-toolbar >
-    <div fxShow="true" fxHide.gt-sm="true">
-            <button mat-icon-button (click)="sidenav.toggle()">
-              <mat-icon>menu</mat-icon>
-             </button>
+    <div>
+        <mat-toolbar class="top">
+            <img src="./assets/logo1.PNG">
+            <div class="settings-icon">
+                <I class="a1">Project</I>&nbsp;&nbsp;&nbsp;
+                    <select placeholder="Project">
+                        <option>Seclect Project</option>
+                        <option *ngFor="let project of projects">
+                            {{project.value}}
+                        </option>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img  src="./assets/2.png" class="imgclass">
+                    <button mat-button>{{UserName}}</button>&nbsp;&nbsp;&nbsp;
+            </div>
+        </mat-toolbar>
     </div>
-
-    <button mat-button [matMenuTriggerFor]="menu">RHYTIFY</button>
-    <mat-menu #menu="matMenu" >
-      <button mat-menu-item routerLink="/menu/home">HOME</button>
-      <button mat-menu-item routerLink="/menu/configuration">CONFIGURATION</button>
-    </mat-menu>
-
-
-    <div fxShow="true" fxHide.lt-md="true">
-            <button mat-button [matMenuTriggerFor]="menu2">
-                    <mat-icon>polymer</mat-icon> VISUALIZATION</button>
-                    <mat-menu #menu2="matMenu">
-                        <button mat-menu-item>EXECUTION</button>
-                    </mat-menu>
-            <button mat-button [matMenuTriggerFor]="menu3">
-                <mat-icon>person</mat-icon> TRACEABILITY
-            </button>
-            <mat-menu #menu3="matMenu">
-                <button mat-menu-item>USER STORIES</button>
-                <button mat-menu-item>TASKS</button>
-                <button mat-menu-item>TEST CASES</button>
-                <button mat-menu-item>BUGS</button>
-                <button mat-menu-item>SOURCE CODE</button>
-                <button mat-menu-item>MAPPING</button>
+    <div>
+        <mat-toolbar>
+            <div fxShow="true" fxHide.gt-sm="true">
+                <button mat-icon-button (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <button mat-button [matMenuTriggerFor]="menu"><img src="./assets/rhytify.png">RHYTIFY</button>
+            <mat-menu #menu="matMenu" >
+                <button mat-menu-item routerLink="/menu/home">HOME</button>
+                <button mat-menu-item routerLink="/menu/configuration">CONFIGURATION</button>
             </mat-menu>
-            <button mat-button [matMenuTriggerFor]="menu4">
+            <div fxShow="true" fxHide.lt-md="true">
+                <button mat-button [matMenuTriggerFor]="menu2">
+                    <mat-icon>polymer</mat-icon> VISUALIZATION
+                </button>
+                <mat-menu #menu2="matMenu">
+                    <button mat-menu-item>EXECUTION</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="menu3">
+                    <mat-icon>person</mat-icon> TRACEABILITY
+                </button>
+                <mat-menu #menu3="matMenu">
+                    <button mat-menu-item>USER STORIES</button>
+                    <button mat-menu-item>TASKS</button>
+                    <button mat-menu-item>TEST CASES</button>
+                    <button mat-menu-item>BUGS</button>
+                    <button mat-menu-item>SOURCE CODE</button>
+                    <button mat-menu-item>MAPPING</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="menu4">
                     <mat-icon>person</mat-icon> IMPACT ANALYSIS
                 </button>
                 <mat-menu #menu4="matMenu">
@@ -40,36 +56,47 @@
                     <button mat-menu-item>GIT CHANGES</button>
                 </mat-menu>
             </div>
-        
             <button mat-button class="settings-icon"> <mat-icon>settings</mat-icon></button>
-
-</mat-toolbar>
-<mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-<div fxLayout="column">
-    <button mat-button [matMenuTriggerFor]="menu2">
-            <mat-icon>polymer</mat-icon> VISUALIZATION</button>
-            <mat-menu #menu2="matMenu">
-                <button mat-menu-item>EXECUTION</button>
-            </mat-menu>
-    <button mat-button [matMenuTriggerFor]="menu3">
-        <mat-icon>person</mat-icon> TRACEABILITY
-    </button>
-    <mat-menu #menu3="matMenu">
-        <button mat-menu-item>USER STORIES</button>
-        <button mat-menu-item>TASKS</button>
-        <button mat-menu-item>TEST CASES</button>
-        <button mat-menu-item>BUGS</button>
-        <button mat-menu-item>SOURCE CODE</button>
-        <button mat-menu-item>MAPPING</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="menu4">
-            <mat-icon>person</mat-icon> IMPACT ANALYSIS
-        </button>
-        <mat-menu #menu4="matMenu">
-            <button mat-menu-item>TFS CHANGES</button>
-            <button mat-menu-item>SVN CHANGES</button>
-            <button mat-menu-item>GIT CHANGES</button>
-        </mat-menu>
+        </mat-toolbar>
+        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+            <div fxLayout="column">
+                <button mat-button [matMenuTriggerFor]="menu2">
+                        <mat-icon>polymer</mat-icon> VISUALIZATION
+                </button>
+                <mat-menu #menu2="matMenu">
+                    <button mat-menu-item>EXECUTION</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="menu3">
+                    <mat-icon>person</mat-icon> TRACEABILITY
+                </button>
+                <mat-menu #menu3="matMenu">
+                    <button mat-menu-item>USER STORIES</button>
+                    <button mat-menu-item>TASKS</button>
+                    <button mat-menu-item>TEST CASES</button>
+                    <button mat-menu-item>BUGS</button>
+                    <button mat-menu-item>SOURCE CODE</button>
+                    <button mat-menu-item>MAPPING</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="menu4">
+                    <mat-icon>person</mat-icon> IMPACT ANALYSIS
+                </button>
+                <mat-menu #menu4="matMenu">
+                    <button mat-menu-item>TFS CHANGES</button>
+                    <button mat-menu-item>SVN CHANGES</button>
+                    <button mat-menu-item>GIT CHANGES</button>
+                </mat-menu>
+            </div>
+        </mat-sidenav>
+        <br><br>
+    </div>
 </div>
-</mat-sidenav><br><br>
+
+<!-- footer -->
+<div class="bottom">
+        <mat-toolbar class="top">
+                <h1>© 2019 - My ASP.NET Application</h1>
+                <div class="settings-icon">
+                    <img src="./assets/valuelabs.png">
+                </div>
+            </mat-toolbar> 
 </div>

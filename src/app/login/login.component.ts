@@ -21,6 +21,17 @@ export interface Office
 export class LoginComponent implements OnInit
 {
 
+  /* comp$: object; */
+  ngOnInit() 
+  {
+    /* this.data.getCompanies().subscribe(
+      data => {
+        let resources = data[0]["Companies"];
+        console.log(resources["Name"]);
+    }
+    ) */
+  }
+
   officeControl = new FormControl('', [Validators.required]);
 
   office: Office[] = [
@@ -66,7 +77,7 @@ export class LoginComponent implements OnInit
 
   constructor(private router: Router, private data: LoginService,  private cookieService: CookieService) {  }
 
-  ngOnInit() {  }
+  
 
   sendReq() 
   {

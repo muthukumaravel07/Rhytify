@@ -4,10 +4,13 @@
   align-items: center;
   margin-left: 7.5%; 
   margin-right: 9%;
-  top: 10%;
+  top: 17%;
+  margin-bottom: 100px;
   
 }
-
+mat-divider{
+  border-color: rgba(12, 8, 206, 0.575);
+}
 p{
   font-size: 17px;
 }

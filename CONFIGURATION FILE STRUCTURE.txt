@@ -1,0 +1,109 @@
+{
+	"Configurations":
+	[
+		{
+			"Key":"Source Control",
+			"Description":"Configure the external system that is the Source Control.",
+			"OptionType":2,
+			"Options":
+			[
+				{
+					"key":"TFS",
+					"Value":null
+				},
+				{
+					"key":"GIT",
+					"Value":null
+				},
+				{
+					"key":"SVN",
+					"Value":null
+				}
+			]
+		},
+		{
+			"Key":"USer Story",
+			"Description":"Configure the external system that hosts the User Stories.",
+			"OptionType":2,
+			"Options":
+			[
+				{
+					"key":"TFS",
+					"Value":null
+				},
+				{
+					"key":"RHYTIFY",
+					"Value":null
+				}
+			]
+		},
+		{
+			"Key":"Task",
+			"Description":"Configure the external system that hosts the Tasks.",
+			"OptionType":2,
+			"Options":
+			[
+				{
+				"key":"TFS",
+				"Value":null
+				},
+				{
+				"key":"RHYTIFY",
+				"Value":null
+				}
+			]
+		},
+		{
+			"Key":"Test Case Management",
+			"Description":"Configure the external system that hosts Test Cases.",
+			"OptionType":2,
+			"Options":
+			[
+				{
+					"key":"TFS",
+					"Value":null
+				},
+				{
+					"key":"UTMS",
+					"Value":null
+				},
+				{
+					"key":"RHYTIFY",
+					"Value":null
+				}
+			]
+		},
+		{
+			"Key":"Bugs",
+			"Description":"Configure the external system that hosts the Bugs.",
+			"OptionType":2,
+			"Options":
+			[
+				{
+					"key":"TFS",
+					"Value":null
+				},
+				{
+					"key":"RHYTIFY",
+					"Value":null
+				}
+			]
+		},
+		{
+			"Key":"TFS Configuration",
+			"Description":"Provide the TFS parameter values to connect to TFS.",
+			"OptionType":1,
+			"Options":
+			[
+				{
+					"key":"TFS URL",
+					"Value":null
+				},
+				{
+					"key":"TFS Domain",
+					"Value":null
+				}
+			]
+		}
+	]
+}

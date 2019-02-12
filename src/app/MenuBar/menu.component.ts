@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface Project {
+  value: string;
+}
 
 @Component(
   {
@@ -10,7 +13,11 @@ import { Component, OnInit } from '@angular/core';
 )
 export class MenuComponent implements OnInit 
 {
-  name : boolean;
+  projects: Project[]= [
+    {value: 'RhytifyServiceeAPI'},
+    {value: 'Rhytify'}
+  ];
+  UserName="RhytifyUser";
   /* first: boolean; */
 
   constructor() { }
