@@ -1,56 +1,56 @@
-import { NgModule } from '@angular/core'; 
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { 
-  MatFormFieldModule, 
-  MatDividerModule, 
-  MatToolbarModule, 
-  MatIconModule, 
-  MatMenuModule, 
-  MatInputModule, 
-  MatGridListModule, 
-  MatCardModule, 
+import {
+  MatFormFieldModule,
+  MatDividerModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatMenuModule,
+  MatInputModule,
+  MatGridListModule,
+  MatCardModule,
   MatSelectModule,
-  MatButtonModule, 
+  MatButtonModule,
   MatCheckboxModule, MatSidenavModule, MatListModule
 } from '@angular/material';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 
-import { MatRadioModule} from '@angular/material';
+import { MatRadioModule } from '@angular/material';
 
 @NgModule(
   {
-    imports: 
+    imports:
     [
-      MatSelectModule, 
-      MatButtonModule, 
-      MatCheckboxModule, 
-      MatToolbarModule, 
-      MatIconModule, 
-      MatMenuModule, 
-      MatInputModule, 
-      MatGridListModule, 
-      MatCardModule, 
-      MatFormFieldModule, 
-      MatDividerModule, 
+      MatSelectModule,
+      MatButtonModule,
+      MatCheckboxModule,
+      MatToolbarModule,
+      MatIconModule,
+      MatMenuModule,
+      MatInputModule,
+      MatGridListModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatDividerModule,
       FormsModule, MatSidenavModule, MatListModule, FlexLayoutModule, MatRadioModule
     ],
-    exports: 
+    exports:
     [
-      MatSelectModule, 
-      MatButtonModule, 
-      MatCheckboxModule, 
-      MatToolbarModule, 
-      MatIconModule, 
-      MatMenuModule, 
-      MatInputModule, 
-      MatGridListModule, 
-      MatCardModule, 
-      MatFormFieldModule, 
-      MatDividerModule, 
+      MatSelectModule,
+      MatButtonModule,
+      MatCheckboxModule,
+      MatToolbarModule,
+      MatIconModule,
+      MatMenuModule,
+      MatInputModule,
+      MatGridListModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatDividerModule,
       FormsModule, MatSidenavModule, MatListModule, FlexLayoutModule, MatRadioModule
     ],
   }
 )
-export class MaterialModule {   }
+export class MaterialModule { }

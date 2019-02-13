@@ -10,25 +10,21 @@ import 'rxjs/add/operator/map';
     providedIn: 'root'
   }
 )
-export class LoginService 
-{
-  URL = 'http://172.20.126.27:3000/auth';
-  URLCompanies='./assets/userlogin.json';
-  constructor(private http: HttpClient, private cookie: CookieService) 
-  { }
-  
-  getCompanies(): Observable<any>
-  {
+export class LoginService {
+  URL = 'http://172.20.126.27:3000/auth'; /* http://httpbin.org/post */
+  URLCompanies = './assets/userlogin.json';
+  constructor(private http: HttpClient, private cookie: CookieService) { }
+
+  getCompanies(): Observable<any> {
     return this.http.get(this.URLCompanies);
   }
 
-  login(companyLocation, project, username, password ) 
-  {
-    return this.http.post(this.URL, {'companyLocation': companyLocation, 'project': project, 'username': username, 'password': password});
+  login(companyLocation, project, username, password) {
+    return this.http.post(this.URL, { 'companyLocation': companyLocation, 'project': project, 'username': username, 'password': password });
   }
 
   loggedIn() {
     return !!this.cookie.get('jwtToken');
   }
-  
+
 }

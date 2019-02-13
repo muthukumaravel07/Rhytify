@@ -6,14 +6,15 @@
             <img src="./assets/logo1.PNG">
             <div class="settings-icon">
                 <I class="a1">Project</I>&nbsp;&nbsp;&nbsp;
-                    <select placeholder="Project">
-                        <option>Seclect Project</option>
-                        <option *ngFor="let project of projects">
-                            {{project.value}}
-                        </option>
-                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img  src="./assets/2.png" class="imgclass">
-                    <button mat-button>{{UserName}}</button>&nbsp;&nbsp;&nbsp;
+                <select placeholder="Project">
+                    <option>Seclect Project</option>
+                    <option *ngFor="let project of projects">
+                        {{project.value}}
+                    </option>
+                </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="./assets/2.png" class="imgclass">
+                <button mat-button>{{UserName}}</button>&nbsp;&nbsp;&nbsp;
             </div>
         </mat-toolbar>
     </div>
@@ -24,8 +25,9 @@
                     <mat-icon>menu</mat-icon>
                 </button>
             </div>
-            <button mat-button [matMenuTriggerFor]="menu"><img src="./assets/rhytify.png">RHYTIFY</button>
-            <mat-menu #menu="matMenu" >
+            <button mat-button [matMenuTriggerFor]="menu">
+                <img src="./assets/rhytify.png">RHYTIFY</button>
+            <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="/menu/home">HOME</button>
                 <button mat-menu-item routerLink="/menu/configuration">CONFIGURATION</button>
             </mat-menu>
@@ -56,12 +58,14 @@
                     <button mat-menu-item>GIT CHANGES</button>
                 </mat-menu>
             </div>
-            <button mat-button class="settings-icon"> <mat-icon>settings</mat-icon></button>
+            <button mat-button class="settings-icon">
+                <mat-icon>settings</mat-icon>
+            </button>
         </mat-toolbar>
-        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
             <div fxLayout="column">
                 <button mat-button [matMenuTriggerFor]="menu2">
-                        <mat-icon>polymer</mat-icon> VISUALIZATION
+                    <mat-icon>polymer</mat-icon> VISUALIZATION
                 </button>
                 <mat-menu #menu2="matMenu">
                     <button mat-menu-item>EXECUTION</button>
@@ -87,16 +91,17 @@
                 </mat-menu>
             </div>
         </mat-sidenav>
-        <br><br>
+        <br>
+        <br>
     </div>
 </div>
 
 <!-- footer -->
 <div class="bottom">
-        <mat-toolbar class="top">
-                <h1>© 2019 - My ASP.NET Application</h1>
-                <div class="settings-icon">
-                    <img src="./assets/valuelabs.png">
-                </div>
-            </mat-toolbar> 
+    <mat-toolbar class="top">
+        <h1>© 2019 - My ASP.NET Application</h1>
+        <div class="settings-icon">
+            <img src="./assets/valuelabs.png">
+        </div>
+    </mat-toolbar>
 </div>

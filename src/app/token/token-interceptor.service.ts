@@ -13,42 +13,35 @@ import { catchError } from 'rxjs/internal/operators';
 
 @Injectable(
   {
-  providedIn: 'root'
+    providedIn: 'root'
   }
 )
-export class TokenInterceptorService implements HttpInterceptor 
-{
-  constructor(public auth: LoginService, private cookieService: CookieService) 
-  { 
+export class TokenInterceptorService implements HttpInterceptor {
+  constructor(public auth: LoginService, private cookieService: CookieService) {
     console.log(' inside TIS ');
-   }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> 
-  {
-    if (this.cookieService.get('jwtToken')) 
-    {
-      console.log('inside TIS (not first request)',this.cookieService.get('jwtToken'));
+  }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (this.cookieService.get('jwtToken')) {
+      console.log('inside TIS (not first request)', this.cookieService.get('jwtToken'));
       req = req.clone(
         {
-          setHeaders: 
+          setHeaders:
           {
             Authorization: `Bearer ` + this.cookieService.get('jwtToken'),
-            'Content-Type':  'application/json'
+            'Content-Type': 'application/json'
           }
         }
       );
     }
-    return next.handle(req).pipe(catchError((error, caught) => 
-    {
+    return next.handle(req).pipe(catchError((error, caught) => {
       console.log(error);
       this.handleAuthError(error);
       return of(error);
     }) as any);
   }
-  private handleAuthError(err: HttpErrorResponse): Observable<any> 
-  {
-    
-    if (err.status === 401) 
-    {
+  private handleAuthError(err: HttpErrorResponse): Observable<any> {
+
+    if (err.status === 401) {
 
       console.log('handled error ' + err.status);
 

@@ -17,11 +17,11 @@ export interface compLoc {
   Order: number;
   Name: string;
 }
-export interface Proj { 
-  Id:string;
-  CompanyId:string;
-  Order:number;
-  Name:string;
+export interface Proj {
+  Id: string;
+  CompanyId: string;
+  Order: number;
+  Name: string;
 }
 
 
@@ -38,12 +38,10 @@ export interface Proj {
 
 export class LoginComponent implements OnInit {
 
-i:number;
-j:number;
   cid: string;
   officeControl = new FormControl('', [Validators.required]);
   projectControl = new FormControl('', [Validators.required]);
-  
+
   comploc: compLoc[];
   proj: Proj[];
   projname: string[];
@@ -51,13 +49,12 @@ j:number;
     this.data.getCompanies().subscribe(
       data => {
         this.comploc = data["Companies"];
-        /* console.log(this.comploc) */
 
       }
     )
   }
 
-  
+
 
 
 
@@ -96,31 +93,16 @@ j:number;
 
 
   test() {
-    /* console.log(this.officeControl.value.Name);
-    console.log(this.officeControl.value.Id); */
-    this.model.companyLocation=this.officeControl.value;
+    this.model.companyLocation = this.officeControl.value;
     this.data.getCompanies().subscribe(
       data => {
         this.proj = data["Projects"];
-         
-       /*  for(this.i=0,this.j=0;this.i<8;this.i++){
-          
-          if(this.proj[this.i].CompanyId==this.officeControl.value.Id)
-          { 
-            this.projname=this.proj[this.i].Name;
-          }
-
-        }
-        console.log(this.projname) */
-
-
       }
     )
 
   }
   test1() {
-    /* console.log(this.projectControl.value.Name); */
-    this.model.project=this.projectControl.value;
+    this.model.project = this.projectControl.value;
   }
 
 
@@ -130,7 +112,7 @@ j:number;
     this.data.login(this.model.companyLocation, this.model.project, this.model.username, this.model.password)
       .subscribe((success: { token: string }) => {
         if (success) {
-          console.log('Paramaters successfully passed and response received',success);
+          console.log('Paramaters successfully passed and response received', success);
           this.cookieService.set('jwtToken', success.token);
           this.router.navigate(['/menu/home']);
         }

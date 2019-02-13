@@ -11,17 +11,16 @@ export interface Project {
     styleUrls: ['./menu.component.css']
   }
 )
-export class MenuComponent implements OnInit 
-{
-  projects: Project[]= [
-    {value: 'RhytifyServiceeAPI'},
-    {value: 'Rhytify'}
+export class MenuComponent implements OnInit {
+  projects: Project[] = [
+    { value: 'RhytifyServiceeAPI' },
+    { value: 'Rhytify' }
   ];
-  UserName="RhytifyUser";
+  UserName = "RhytifyUser";
   /* first: boolean; */
 
   constructor() { }
 
-  ngOnInit() { }           
+  ngOnInit() { }
 
 }
