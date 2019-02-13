@@ -5,59 +5,76 @@ import { Observable } from 'rxjs';
 import { Router } from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
 
-export interface Office 
-{
+export interface Office {
   name: string;
 }
+
+
+
+
+export interface compLoc {
+  Id: string;
+  Order: number;
+  Name: string;
+}
+export interface Proj { 
+  Id:string;
+  CompanyId:string;
+  Order:number;
+  Name:string;
+}
+
+
 
 @Component(
   {
     selector: 'login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
-    }
+  }
 )
 
-export class LoginComponent implements OnInit
-{
 
-  /* comp$: object; */
-  ngOnInit() 
-  {
-    /* this.data.getCompanies().subscribe(
+
+export class LoginComponent implements OnInit {
+
+i:number;
+j:number;
+  cid: string;
+  officeControl = new FormControl('', [Validators.required]);
+  projectControl = new FormControl('', [Validators.required]);
+  
+  comploc: compLoc[];
+  proj: Proj[];
+  projname: string[];
+  ngOnInit() {
+    this.data.getCompanies().subscribe(
       data => {
-        let resources = data[0]["Companies"];
-        console.log(resources["Name"]);
-    }
-    ) */
+        this.comploc = data["Companies"];
+        /* console.log(this.comploc) */
+
+      }
+    )
   }
 
-  officeControl = new FormControl('', [Validators.required]);
-
-  office: Office[] = [
-    {name: 'GroupO'},
-    {name: 'ValueLabs'},
-    {name: 'UAL'},
-    {name: 'Snapfish'},
-    {name: 'UTMSDEMO'}
-  ];
   
-  projectControl = new FormControl('', [Validators.required]);
+
+
 
   GroupO: Office[] = [
-    {name: 'Samsung_Delta'},
-    {name: 'GroupO_Demo'}
-  ];  
+    { name: 'Samsung_Delta' },
+    { name: 'GroupO_Demo' }
+  ];
   ValueLabs: Office[] = [
-    {name: 'RhytrifyServiceAPI'},
-    {name: 'Rhytrify'}
+    { name: 'RhytrifyServiceAPI' },
+    { name: 'Rhytrify' }
   ];
   UTMSDEMO: Office[] = [
-    {name: 'selenium'},
-    {name: 'TAF_QA'},
-    {name: 'JIRA Functionality'}
+    { name: 'selenium' },
+    { name: 'TAF_QA' },
+    { name: 'JIRA Functionality' }
   ];
-  
+
   model = {
     companyLocation: '',
     project: '',
@@ -66,36 +83,61 @@ export class LoginComponent implements OnInit
   };
 
   hide = true;
-  
+
   emailFormControl = new FormControl('', [
     Validators.required
   ]);
-  
+
   passFormControl = new FormControl('', [
     Validators.required
   ]);
 
-  constructor(private router: Router, private data: LoginService,  private cookieService: CookieService) {  }
+  constructor(private router: Router, private data: LoginService, private cookieService: CookieService) { }
 
-  
 
-  sendReq() 
-  {
-    
-    this.data.login(this.model.companyLocation, this.model.project, this.model.username, this.model.password )
-      .subscribe((success: {token: string}) => 
-        {
-          if (success) 
-          {
-            console.log('Paramaters successfully passed and response received');
-            this.cookieService.set( 'jwtToken', success.token );
-            this.router.navigate(['/menu/home']);
-          } 
-          else 
-          {
-            console.log('Login failed');
+  test() {
+    /* console.log(this.officeControl.value.Name);
+    console.log(this.officeControl.value.Id); */
+    this.model.companyLocation=this.officeControl.value;
+    this.data.getCompanies().subscribe(
+      data => {
+        this.proj = data["Projects"];
+         
+       /*  for(this.i=0,this.j=0;this.i<8;this.i++){
+          
+          if(this.proj[this.i].CompanyId==this.officeControl.value.Id)
+          { 
+            this.projname=this.proj[this.i].Name;
           }
+
         }
+        console.log(this.projname) */
+
+
+      }
+    )
+
+  }
+  test1() {
+    /* console.log(this.projectControl.value.Name); */
+    this.model.project=this.projectControl.value;
+  }
+
+
+  sendReq() {
+
+
+    this.data.login(this.model.companyLocation, this.model.project, this.model.username, this.model.password)
+      .subscribe((success: { token: string }) => {
+        if (success) {
+          console.log('Paramaters successfully passed and response received',success);
+          this.cookieService.set('jwtToken', success.token);
+          this.router.navigate(['/menu/home']);
+        }
+        else {
+          console.log('Login failed');
+        }
+      }
       );
   }
 }

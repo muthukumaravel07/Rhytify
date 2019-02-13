@@ -13,13 +13,14 @@ import 'rxjs/add/operator/map';
 export class LoginService 
 {
   URL = 'http://172.20.126.27:3000/auth';
-  /* URLCompanies='http://172.20.126.10/RhytifyApi/api/login'; */
+  URLCompanies='./assets/userlogin.json';
   constructor(private http: HttpClient, private cookie: CookieService) 
   { }
-  /* getCompanies(): Observable<any>
+  
+  getCompanies(): Observable<any>
   {
-    return this.http.get(this.URLCompanies).map(res => res.json());
-  } */
+    return this.http.get(this.URLCompanies);
+  }
 
   login(companyLocation, project, username, password ) 
   {
