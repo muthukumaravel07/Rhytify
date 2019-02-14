@@ -12,8 +12,8 @@ import 'rxjs/add/operator/map';
 )
 export class LoginService {
   URL = 'http://172.20.126.27:3000/auth'; /*  http://httpbin.org/post  */
-  URLCompanies = './assets/userlogin.json';
-  URLConfig = './assets/userconfig.json';
+  URLCompanies = 'http://172.20.126.10/RhytifyApi/api/login'; /* './assets/userlogin.json'; */
+  URLConfig = 'http://172.20.126.10/RhytifyApi/api/configurations'; /* './assets/userconfig.json'; */
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
   getCompanies(): Observable<any> {
