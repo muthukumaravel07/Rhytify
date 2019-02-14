@@ -34,7 +34,7 @@ p{
 .example-card {
   min-width: 400px;
   max-width: 400px;
-  min-height: 300px;
+  min-height: 310px;
   
 }
 
@@ -54,7 +54,16 @@ img{
   flex-direction: column;
 }
 
+.example-container1 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
 .example-container > * {
   width: 75%;
   
+}
+.c{
+  margin-left: 10px;
 }
