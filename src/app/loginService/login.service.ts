@@ -14,6 +14,7 @@ export class LoginService {
   URL = 'http://172.20.126.27:3000/auth'; /*  http://httpbin.org/post  */
   URLCompanies = 'http://172.20.126.10/RhytifyApi/api/login'; /* './assets/userlogin.json'; */
   URLConfig = 'http://172.20.126.10/RhytifyApi/api/configurations'; /* './assets/userconfig.json'; */
+  URLProjectSummary = 'http://172.20.126.10/RhytifyApi/api/projectSummary'; /* ./assets/summary.json */
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
   getCompanies(): Observable<any> {
