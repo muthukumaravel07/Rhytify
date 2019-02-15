@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginService } from '../loginService/login.service';
 
 export interface Project {
   value: string;
+}
+export interface Proj {
+  Id: string;
+  CompanyId: string;
+  Order: number;
+  Name: string;
 }
 
 @Component(
@@ -16,11 +24,22 @@ export class MenuComponent implements OnInit {
     { value: 'RhytifyServiceeAPI' },
     { value: 'Rhytify' }
   ];
-  UserName = "RhytifyUser";
+  UserName: string;
+  CompLoc: string;
+  proj: Proj[];
   /* first: boolean; */
 
-  constructor() { }
+  constructor(private cookie: CookieService, private data: LoginService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.UserName= this.cookie.get('username'); 
+    this.CompLoc= this.cookie.get('companyID');
+    this.data.getCompanies().subscribe(
+      data => {
+        this.proj = data["Projects"];
+      }
+    )
+
+  }
 
 }
