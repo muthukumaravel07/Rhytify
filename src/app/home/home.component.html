@@ -1,60 +1,12 @@
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start" class="one">
-  <!-- 1 -->
-  <ng-container>
+  <!-- 1-3 -->
+  <ng-container *ngFor="let details of home; let i = index">
     <div fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Code Files</mat-card-title>
-          <div class="a">
-            <mat-icon>refresh</mat-icon>&nbsp;
-            <mat-icon>visibility</mat-icon>
-          </div>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/11.svg">
-          </div>
-
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
-  <!-- 2 -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>User Stories</mat-card-title>
-          <div class="a">
-            <mat-icon>refresh</mat-icon>&nbsp;
-            <mat-icon>visibility</mat-icon>
-          </div>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/12.svg">
-          </div>
-
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
-  <!-- 3 -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <mat-card-title>Tasks</mat-card-title>
-          <mat-icon class="a">refresh</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-card-header class="mat-header">
+          <mat-card-title>{{details.key}}</mat-card-title>
+          <div fxFlex></div>
+          <mat-icon>refresh</mat-icon>&nbsp;
           <mat-icon>visibility</mat-icon>
         </mat-card-header>
         <br>
@@ -62,133 +14,97 @@
         <br>
         <br>
         <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/13.svg">
+          <div class="div-img" mat-card-avatar style="float:left">
+            <img src="./assets/{{11+i}}.svg">
           </div>
-
+          <div class="div-text" style="float:right">
+            {{details.Value}}
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
+
   <!-- 4 -->
   <ng-container>
     <div fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>Test Cases</mat-card-title>
-          <div class="a">
-            <mat-icon>refresh</mat-icon>&nbsp;
-            <mat-icon>visibility</mat-icon>
-          </div>
+          <div fxFlex></div>
+          <mat-icon>refresh</mat-icon>&nbsp;
+          <mat-icon>visibility</mat-icon>
         </mat-card-header>
         <br>
         <mat-divider></mat-divider>
         <br>
         <br>
         <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
+          <div class="div-img" mat-card-avatar style="float:left">
             <img src="./assets/14.svg">
           </div>
-
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
-  <!-- 5 -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
+
+  <!-- 5-7 -->
+  <ng-container *ngFor="let cardDetail of config; let i = index; let j = index;">
+
+    <div *ngIf="j < 3" fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>Source Control</mat-card-title>
-          <div class="a">
-            <mat-icon>edit</mat-icon>
-          </div>
+          <mat-card-title>{{cardDetail.Key}}</mat-card-title>
+          <div fxFlex></div>
+          <mat-icon>edit</mat-icon>
         </mat-card-header>
         <br>
         <mat-divider></mat-divider>
         <br>
         <br>
         <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/15.svg">
+          <div class="div-img" mat-card-avatar style="float:left">
+            <img src="./assets/{{15+i}}.svg">
           </div>
-
+          <div *ngIf="cardDetail.Options[0]">
+            <div class="div-options" style="float:right" *ngIf="cardDetail.Options[0].Value== 1">
+              {{cardDetail.Options[0].key}}
+            </div>
+          </div>
+          <div *ngIf="cardDetail.Options[1]">
+            <div class="div-options" style="float:right" *ngIf="cardDetail.Options[1].Value== 1">
+              {{cardDetail.Options[1].key}}
+            </div>
+          </div>
+          <div *ngIf="cardDetail.Options[2]">
+            <div class="div-options" style="float:right" *ngIf="cardDetail.Options[2].Value== 1">
+              {{cardDetail.Options[2].key}}
+            </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
-  <!-- 6 -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>User Story</mat-card-title>
-          <div class="a">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <mat-icon>edit</mat-icon>
-          </div>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/16.svg">
-          </div>
 
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
-  <!-- 7 -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Task</mat-card-title>
-          <div class="a">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <mat-icon>edit</mat-icon>
-          </div>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
-            <img src="./assets/17.svg">
-          </div>
-
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
-  <!-- 8 -->
+  <!-- 8 testcase -->
   <ng-container>
     <div fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>Test Case</mat-card-title>
-          <div class="a">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <mat-icon>edit</mat-icon>
-          </div>
+          <div fxFlex></div>
+          <mat-icon>edit</mat-icon>
         </mat-card-header>
         <br>
         <mat-divider></mat-divider>
         <br>
         <br>
         <mat-card-content>
-          <div mat-card-avatar class="example-header-image">
+          <div class="div-img" mat-card-avatar style="float:left">
             <img src="./assets/18.svg">
           </div>
-
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
-
-
 </div>

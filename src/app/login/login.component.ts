@@ -78,7 +78,8 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
-
+  CL: object;
+  P: object;
   hide = true;
 
   emailFormControl = new FormControl('', [
@@ -107,13 +108,17 @@ export class LoginComponent implements OnInit {
 
 
   sendReq() {
+    
 
-
-    this.data.login(this.model.companyLocation, this.model.project, this.model.username, this.model.password)
+    this.data.login(/* this.model.companyLocation */ this.officeControl.value.Name, /* this.model.project */this.projectControl.value.Name, this.model.username, this.model.password)
       .subscribe((success: { token: string }) => {
         if (success) {
           console.log('Paramaters successfully passed and response received', success);
           this.cookieService.set('jwtToken', success.token);
+          this.cookieService.set('companyLocation', this.officeControl.value.Name);
+          this.cookieService.set('companyID', this.officeControl.value.Id);
+          this.cookieService.set('project', this.projectControl.value.Name);
+          this.cookieService.set('username', this.model.username);
           this.router.navigate(['/menu/home']);
         }
         else {

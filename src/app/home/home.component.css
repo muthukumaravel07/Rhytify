@@ -6,22 +6,9 @@
   margin-right: 9%;
   top: 17%;
   margin-bottom: 100px;
-  
 }
 mat-divider{
   border-color: rgba(12, 8, 206, 0.575);
-}
-p{
-  font-size: 17px;
-}
-
-.cardList {
-  display: flex;
-  flex-direction: column;
-}
-
-.cardList > *:not(:last-child) {
-  margin-bottom: 32px;
 }
 
 .host {
@@ -29,38 +16,27 @@ p{
   padding: 32px 32px 32px;
   border-radius: 8px;
 }
+
 .example-card {
   min-width: 265px;
   max-width: 265px;
   min-height: 250px;
   
+} 
+
+.div-text {
+  margin-top:15px;
+  font-size: 40px;
+  margin-right: 30px
 }
 
-.example-header-image {
-  background-size: cover;
+.div-img{
+  margin-top:15px;
+  margin-left:30px;
 }
-img{
-  min-height: 27px;
-}
+.div-options{
+  margin-top:15px;
+  font-size: 30px;
+  margin-right: 10px
 
-.mat-radio-button ~ .mat-radio-button {
-  padding-right: 16px;
-}
-
-.example-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.example-container > * {
-  width: 75%;
-  
-}
-mat-card-content{
-  position: relative;
-  left: 20%;
-}
-.a{
-  position: relative;
-  margin-left: 25%;
 }

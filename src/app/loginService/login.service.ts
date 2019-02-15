@@ -23,6 +23,9 @@ export class LoginService {
   getConfig(): Observable<any> {
     return this.http.get(this.URLConfig);
   }
+  getHome(): Observable<any> {
+    return this.http.get(this.URLProjectSummary);
+  }
 
   login(companyLocation, project, username, password) {
     return this.http.post(this.URL, { 'companyLocation': companyLocation, 'project': project, 'username': username, 'password': password });

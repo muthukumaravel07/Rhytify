@@ -4,14 +4,39 @@
     <div>
         <mat-toolbar class="top">
             <img src="./assets/logo1.PNG">
-            <div class="settings-icon">
-                <I class="a1">Project</I>&nbsp;&nbsp;&nbsp;
-                <select placeholder="Project">
+            <div class="settings-icon1">
+               Project&nbsp;&nbsp;&nbsp;
+
+
+                <!-- <select placeholder="Project">
+
+
                     <option>Seclect Project</option>
-                    <option *ngFor="let project of projects">
-                        {{project.value}}
-                    </option>
-                </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    
+                        <option *ngFor="let projects of proj" >
+                            <div *ngIf="projects.CompanyId==CompLoc">{{projects.Name}}</div>
+                        </option>
+                   
+                    
+                </select> -->
+                <mat-form-field >
+
+                    <mat-select required>
+                        <mat-option>--Select--</mat-option>
+                        <div *ngFor="let projects of proj">
+                            <mat-option [value]="projects" *ngIf="projects.CompanyId==CompLoc">
+                                <p>{{projects.Name}}</p>
+                            </mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            
+
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                 <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <img src="./assets/2.png" class="imgclass">
                 <button mat-button>{{UserName}}</button>&nbsp;&nbsp;&nbsp;
