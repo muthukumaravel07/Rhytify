@@ -22,13 +22,13 @@
             
             <mat-card-actions *ngIf="cardDetail.OptionType=='2'">
               <br>
-              <br>
-              <br>
               &nbsp;&nbsp;&nbsp;
               <mat-radio-group>
-                <mat-radio-button *ngIf="cardDetail.Options[0]" value="1" checked="true" color="primary">{{cardDetail.Options[0].key}}</mat-radio-button> &nbsp;&nbsp;&nbsp;
-                <mat-radio-button *ngIf="cardDetail.Options[1]" value="2" color="primary">{{cardDetail.Options[1].key}}</mat-radio-button> &nbsp;&nbsp;&nbsp;
-                <mat-radio-button *ngIf="cardDetail.Options[2]" value="3" color="primary">{{cardDetail.Options[2].key}}</mat-radio-button>
+                <div id="main">
+                <div *ngIf="cardDetail.Options[0]"><mat-radio-button  value="1"  checked="true" color="primary">{{cardDetail.Options[0].key}}</mat-radio-button></div> &nbsp;&nbsp;&nbsp;
+                <div *ngIf="cardDetail.Options[1]"><mat-radio-button  value="2" color="primary">{{cardDetail.Options[1].key}}</mat-radio-button></div> &nbsp;&nbsp;&nbsp;
+                <div *ngIf="cardDetail.Options[2]"><mat-radio-button  value="3" color="primary">{{cardDetail.Options[2].key}}</mat-radio-button></div>
+              </div>
               </mat-radio-group>
             </mat-card-actions>
             <mat-card-actions *ngIf="cardDetail.OptionType=='1'">

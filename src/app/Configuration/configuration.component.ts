@@ -16,10 +16,11 @@ export interface Config{
 })
 export class ConfigurationComponent implements OnInit {
   config: Config[];
-
+  
   constructor(private data: LoginService) { }
 
   ngOnInit() {
+    
     this.data.getConfig().subscribe(
       data => {
         this.config = data["Configurations"];
