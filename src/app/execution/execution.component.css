@@ -1,0 +1,37 @@
+.mytext{
+    text-overflow: ellipsis;    
+ }
+
+ .button{
+    margin-top:27%;
+    display: flex;
+    justify-content: space-between;
+    width:70%;  
+    position: absolute;
+}
+.col{
+    border-style: solid;
+    border-color: rgb(100, 94, 94);
+    border-radius: 10px;
+    align-items: center;
+    width: 80%;    
+    display:flex; 
+    margin-left: 10%; 
+}
+.main{
+     margin-top: 5%;
+     position: relative;
+ }
+ .h{
+     background-color: rgb(221, 220, 219);
+ }
+
+.grid-top {
+   position: relative;
+   max-width: 60%;
+   margin-top:5%;
+   left:20%; 
+ }
+ mat-card {
+    width:80%;
+  }
