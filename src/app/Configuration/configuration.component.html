@@ -1,48 +1,67 @@
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start" class="one">
   <ng-container *ngFor="let cardDetail of config; let i = index">
-      <div>
-        <div fxFlex.lt-sm="100%" class="host">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image">   
-                <img src="./assets/{{i+1}}.png">
+    <div>
+      <div fxFlex.lt-sm="100%" class="host">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <img src="./assets/{{i+1}}.png">
+            </div>
+            <mat-card-title>{{cardDetail.Key}}</mat-card-title>
+          </mat-card-header>
+          <br>
+          <mat-divider></mat-divider>
+          <br>
+          <br>
+          <mat-card-content>
+            <p>
+              {{cardDetail.Description}}
+            </p>
+          </mat-card-content>
+          <br>
+          <mat-card-actions *ngIf="cardDetail.OptionType=='2'">
+            <br> &nbsp;&nbsp;&nbsp;
+            <mat-radio-group>
+              <div id="main">
+                <div *ngIf="cardDetail.Options[2]">
+                  <div *ngIf="cardDetail.Options[2].Value==1; else elseBlock">
+                    <mat-radio-button value="3" checked="true" color="primary">{{cardDetail.Options[2].key}}</mat-radio-button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <mat-radio-button value="3" color="primary">{{cardDetail.Options[2].key}}</mat-radio-button>
+                  </ng-template>
+                </div> &nbsp;&nbsp;&nbsp;
+                <div *ngIf="cardDetail.Options[1]">
+                  <div *ngIf="cardDetail.Options[1].Value==1; else elseBlock">
+                    <mat-radio-button value="2" checked="true" color="primary">{{cardDetail.Options[1].key}}</mat-radio-button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <mat-radio-button value="2" color="primary">{{cardDetail.Options[1].key}}</mat-radio-button>
+                  </ng-template>
+                </div> &nbsp;&nbsp;&nbsp;
+                <div *ngIf="cardDetail.Options[0]">
+                  <div *ngIf="cardDetail.Options[0].Value==1; else elseBlock">
+                    <mat-radio-button value="1" checked="true" color="primary">{{cardDetail.Options[0].key}}</mat-radio-button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <mat-radio-button value="1" color="primary">{{cardDetail.Options[0].key}}</mat-radio-button>
+                  </ng-template>
+                </div> &nbsp;&nbsp;&nbsp;
               </div>
-              <mat-card-title>{{cardDetail.Key}}</mat-card-title>
-            </mat-card-header>
-            <br>
-            <mat-divider></mat-divider>
-            <br>
-            <br>
-            <mat-card-content>
-              <p>
-                {{cardDetail.Description}}
-              </p>
-            </mat-card-content>
-            <br>
-            
-            <mat-card-actions *ngIf="cardDetail.OptionType=='2'">
-              <br>
-              &nbsp;&nbsp;&nbsp;
-              <mat-radio-group>
-                <div id="main">
-                <div *ngIf="cardDetail.Options[0]"><mat-radio-button  value="1"  checked="true" color="primary">{{cardDetail.Options[0].key}}</mat-radio-button></div> &nbsp;&nbsp;&nbsp;
-                <div *ngIf="cardDetail.Options[1]"><mat-radio-button  value="2" color="primary">{{cardDetail.Options[1].key}}</mat-radio-button></div> &nbsp;&nbsp;&nbsp;
-                <div *ngIf="cardDetail.Options[2]"><mat-radio-button  value="3" color="primary">{{cardDetail.Options[2].key}}</mat-radio-button></div>
-              </div>
-              </mat-radio-group>
-            </mat-card-actions>
-            <mat-card-actions *ngIf="cardDetail.OptionType=='1'">
-                <div class="example-container1">
-                  <mat-form-field>
-                    <input matInput *ngIf="cardDetail.Options[0]" placeholder={{cardDetail.Options[0].key}}>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input matInput *ngIf="cardDetail.Options[1]" placeholder={{cardDetail.Options[1].key}}>
-                  </mat-form-field>
-                </div>
-              </mat-card-actions>
-          </mat-card>
-        </div>
+            </mat-radio-group>
+          </mat-card-actions>
+          <mat-card-actions *ngIf="cardDetail.OptionType=='1'">
+            <div class="example-container1">
+              <mat-form-field>
+                <input matInput *ngIf="cardDetail.Options[0]" placeholder={{cardDetail.Options[0].key}}>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput *ngIf="cardDetail.Options[1]" placeholder={{cardDetail.Options[1].key}}>
+              </mat-form-field>
+            </div>
+          </mat-card-actions>
+        </mat-card>
       </div>
+    </div>
   </ng-container>
 </div>

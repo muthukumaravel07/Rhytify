@@ -30,7 +30,7 @@
     <div fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>Test Cases</mat-card-title>
+          <mat-card-title>Test Cases Management</mat-card-title>
           <div fxFlex></div>
           <mat-icon>refresh</mat-icon>&nbsp;
           <mat-icon>visibility</mat-icon>
@@ -51,7 +51,7 @@
   <!-- 5-7 -->
   <ng-container *ngFor="let cardDetail of config; let i = index; let j = index;">
 
-    <div *ngIf="j < 3" fxFlex.lt-sm="100%" class="host">
+    <div *ngIf="j < 4" fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>{{cardDetail.Key}}</mat-card-title>
@@ -86,25 +86,4 @@
     </div>
   </ng-container>
 
-  <!-- 8 testcase -->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Test Case</mat-card-title>
-          <div fxFlex></div>
-          <mat-icon>edit</mat-icon>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div class="div-img" mat-card-avatar style="float:left">
-            <img src="./assets/18.svg">
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
-</div>
+  
