@@ -35,11 +35,11 @@
   </mat-grid-list> 
 
 <mat-grid-list class="col" cols="6" rowHeight='100px' align="center"  [cols]="breakpoint"  (window:resize)="onResize($event)"> 
-    <mat-grid-tile class="h" class="h" [colspan]="2" [rowspan]="1">
-      <h1>EXECUTION</h1>
+    <mat-grid-tile   [colspan]="2" [rowspan]="1">
+      EXECUTION
     </mat-grid-tile>
-    <mat-grid-tile  *ngIf="breakpoint==6" class="h" [colspan]="2" [rowspan]="1"></mat-grid-tile>
-    <mat-grid-tile  *ngIf="breakpoint==6" class="h" [colspan]="2" [rowspan]="1"></mat-grid-tile>
+    <mat-grid-tile  *ngIf="breakpoint==6"  [colspan]="2" [rowspan]="1"></mat-grid-tile>
+    <mat-grid-tile  *ngIf="breakpoint==6"  [colspan]="2" [rowspan]="1"></mat-grid-tile>
   <mat-grid-tile>Execution Name</mat-grid-tile>
   <mat-grid-tile> 
       <mat-form-field appearance="outline" class="example-full-width">

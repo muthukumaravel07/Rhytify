@@ -1,5 +1,6 @@
 .full{
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 .user-table
 {
@@ -11,6 +12,7 @@
   box-sizing: border-box;
   left:15%;
   box-shadow: 1px 1px 1px 1px rgba(153, 153, 153, 0.808);
+  margin-bottom: 10%;
 }
 
 table {

@@ -31,15 +31,15 @@
         <input matInput>
     </mat-form-field>
     <div class="user-table">
-        <p>USER STORIES</p>
+        <p>TASKS</p>
         <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="userstorysource">
-                <th mat-header-cell *matHeaderCellDef>User Story Source</th>
-                <td mat-cell *matCellDef="let element">{{element.userstorysource}} </td>
+            <ng-container matColumnDef="tasksource">
+                <th mat-header-cell *matHeaderCellDef>Task Source</th>
+                <td mat-cell *matCellDef="let element">{{element.tasksource}} </td>
             </ng-container>
-            <ng-container matColumnDef="userstoryid">
-                <th mat-header-cell *matHeaderCellDef>User Story ID</th>
-                <td mat-cell *matCellDef="let element"> {{element.userstoryid}} </td>
+            <ng-container matColumnDef="taskid">
+                <th mat-header-cell *matHeaderCellDef>Task ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.taskid}} </td>
             </ng-container>
             <ng-container matColumnDef="title">
                 <th mat-header-cell *matHeaderCellDef>Title</th>
@@ -53,9 +53,9 @@
                 <th mat-header-cell *matHeaderCellDef>Mapped Test Cases</th>
                 <td mat-cell *matCellDef="let element"> {{element.mappedtestcases}} </td>
             </ng-container>
-            <ng-container matColumnDef="mappedtasks">
-                <th mat-header-cell *matHeaderCellDef>Mapped Tasks</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedtasks}} </td>
+            <ng-container matColumnDef="mappeduserstories">
+                <th mat-header-cell *matHeaderCellDef>Mapped User Stories</th>
+                <td mat-cell *matCellDef="let element"> {{element.mappeduserstories}} </td>
             </ng-container>
             <ng-container matColumnDef="mappedcode">
                 <th mat-header-cell *matHeaderCellDef>Mapped Code</th>

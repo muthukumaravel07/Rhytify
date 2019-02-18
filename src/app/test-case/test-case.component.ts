@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-
 import { LoginService } from '../loginService/login.service';
 
 export interface Config {
@@ -10,23 +9,24 @@ export interface Config {
   Options: object;
 }
 
-
 @Component({
-  selector: 'app-userstories',
-  templateUrl: './userstories.component.html',
-  styleUrls: ['./userstories.component.css']
+  selector: 'test-case',
+  templateUrl: './test-case.component.html',
+  styleUrls: ['./test-case.component.css']
 })
-export class UserstoriesComponent implements OnInit {
+export class TestCaseComponent implements OnInit {
 
   config: Config[];
+
   constructor(private data: LoginService) { }
-  titleColumns = ['USER STORIES'];
+
+  titleColumns = ['TEST CASES'];
   displayedColumns: string[] = [
-    'userstorysource',
-    'userstoryid',
+    'testcasesource',
+    'testcaseid',
     'title',
     'description',
-    'mappedtestcases',
+    'mappeduserstories',
     'mappedtasks',
     'mappedcode'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -43,26 +43,24 @@ export class UserstoriesComponent implements OnInit {
       }
     )
   }
-
 }
 export interface PeriodicElement {
-  userstorysource: string;
-  userstoryid: number;
+  testcasesource: string;
+  testcaseid: number;
   title: string;
   description: string;
-  mappedtestcases: number;
+  mappeduserstories: number;
   mappedtasks: number;
   mappedcode: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    userstorysource: 'new',
-    userstoryid: 1,
+    testcasesource: 'new',
+    testcaseid: 1,
     title: 'hyderogen',
     description: 'H',
-    mappedtestcases: 1,
+    mappeduserstories: 1,
     mappedtasks: 1,
     mappedcode: 1
   }
 ];
-
