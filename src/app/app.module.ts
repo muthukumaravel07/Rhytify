@@ -20,7 +20,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { MatTableDataSource} from '@angular/material';
 import { ExecutionComponent } from './execution/execution.component';
-
+import { TestCaseComponent } from './test-case/test-case.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { SourceCodeComponent } from './source-code/source-code.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,21 @@ const routes: Routes = [
         path:'execution',
         component:ExecutionComponent,
         canActivate:[AuthGuard]
+      },
+      {
+        path:'testcase',
+        component:TestCaseComponent,
+        canActivate:[AuthGuard]
+      },
+      {
+        path:'tasks',
+        component:TasksComponent,
+        canActivate:[AuthGuard]
+      },
+      {
+        path:'sourcecode',
+        component:SourceCodeComponent,
+        canActivate:[AuthGuard]
       }
     ]
   },
@@ -73,6 +90,9 @@ const routes: Routes = [
       HomeComponent,
       UserstoriesComponent,
       ExecutionComponent,
+      TestCaseComponent,
+      TasksComponent,
+      SourceCodeComponent,
       
     ],
     imports:

@@ -31,15 +31,15 @@
         <input matInput>
     </mat-form-field>
     <div class="user-table">
-        <p>USER STORIES</p>
+        <p>TEST CASE</p>
         <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="userstorysource">
-                <th mat-header-cell *matHeaderCellDef>User Story Source</th>
-                <td mat-cell *matCellDef="let element">{{element.userstorysource}} </td>
+            <ng-container matColumnDef="testcasesource">
+                <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
+                <td mat-cell *matCellDef="let element">{{element.testcasesource}} </td>
             </ng-container>
-            <ng-container matColumnDef="userstoryid">
-                <th mat-header-cell *matHeaderCellDef>User Story ID</th>
-                <td mat-cell *matCellDef="let element"> {{element.userstoryid}} </td>
+            <ng-container matColumnDef="testcaseid">
+                <th mat-header-cell *matHeaderCellDef>Test Case ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.testcaseid}} </td>
             </ng-container>
             <ng-container matColumnDef="title">
                 <th mat-header-cell *matHeaderCellDef>Title</th>
@@ -49,9 +49,9 @@
                 <th mat-header-cell *matHeaderCellDef>Description</th>
                 <td mat-cell *matCellDef="let element"> {{element.description}} </td>
             </ng-container>
-            <ng-container matColumnDef="mappedtestcases">
-                <th mat-header-cell *matHeaderCellDef>Mapped Test Cases</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedtestcases}} </td>
+            <ng-container matColumnDef="mappeduserstories">
+                <th mat-header-cell *matHeaderCellDef>Mapped User Stories</th>
+                <td mat-cell *matCellDef="let element"> {{element.mappeduserstories}} </td>
             </ng-container>
             <ng-container matColumnDef="mappedtasks">
                 <th mat-header-cell *matHeaderCellDef>Mapped Tasks</th>

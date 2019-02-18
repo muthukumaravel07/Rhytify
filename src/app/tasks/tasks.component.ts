@@ -10,27 +10,27 @@ export interface Config {
   Options: object;
 }
 
-
 @Component({
-  selector: 'app-userstories',
-  templateUrl: './userstories.component.html',
-  styleUrls: ['./userstories.component.css']
+  selector: 'tasks',
+  templateUrl: './tasks.component.html',
+  styleUrls: ['./tasks.component.css']
 })
-export class UserstoriesComponent implements OnInit {
-
+export class TasksComponent implements OnInit {
   config: Config[];
   constructor(private data: LoginService) { }
-  titleColumns = ['USER STORIES'];
+
+
+
+  titleColumns = ['TASKS'];
   displayedColumns: string[] = [
-    'userstorysource',
-    'userstoryid',
+    'tasksource',
+    'taskid',
     'title',
     'description',
     'mappedtestcases',
-    'mappedtasks',
+    'mappeduserstories',
     'mappedcode'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
@@ -45,24 +45,24 @@ export class UserstoriesComponent implements OnInit {
   }
 
 }
+
 export interface PeriodicElement {
-  userstorysource: string;
-  userstoryid: number;
+  tasksource: string;
+  taskid: number;
   title: string;
   description: string;
   mappedtestcases: number;
-  mappedtasks: number;
+  mappeduserstories: number;
   mappedcode: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    userstorysource: 'new',
-    userstoryid: 1,
+    tasksource: 'new',
+    taskid: 1,
     title: 'hyderogen',
     description: 'H',
     mappedtestcases: 1,
-    mappedtasks: 1,
+    mappeduserstories: 1,
     mappedcode: 1
   }
 ];
-
