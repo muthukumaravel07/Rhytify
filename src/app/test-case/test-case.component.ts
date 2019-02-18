@@ -17,19 +17,20 @@ export interface Config {
 export class TestCaseComponent implements OnInit {
 
   config: Config[];
+  testcase: any[];
 
   constructor(private data: LoginService) { }
 
-  titleColumns = ['TEST CASES'];
   displayedColumns: string[] = [
-    'testcasesource',
-    'testcaseid',
-    'title',
-    'description',
+    'TestCaseSource',
+    'TestCaseID',
+    'Title',
+    'Description',
     'mappeduserstories',
     'mappedtasks',
-    'mappedcode'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+    'mappedcode'
+  ]
+    dataSource = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -39,28 +40,16 @@ export class TestCaseComponent implements OnInit {
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        /* console.log(this.config); */
+      }
+    )
+    this.data.gettestCases().subscribe(
+      data => {
+        this.testcase = data['TestCasesList'];
+        this.dataSource = new MatTableDataSource(this.testcase);
       }
     )
   }
-}
-export interface PeriodicElement {
-  testcasesource: string;
-  testcaseid: number;
-  title: string;
-  description: string;
-  mappeduserstories: number;
-  mappedtasks: number;
-  mappedcode: number;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    testcasesource: 'new',
-    testcaseid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappeduserstories: 1,
-    mappedtasks: 1,
-    mappedcode: 1
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-];
+}

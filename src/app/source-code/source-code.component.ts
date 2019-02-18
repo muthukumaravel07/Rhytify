@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-
 import { LoginService } from '../loginService/login.service';
 
 export interface Config {
@@ -18,9 +17,21 @@ export interface Config {
 export class SourceCodeComponent implements OnInit {
 
   config: Config[];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  sourcecode: any[];
 
   constructor(private data: LoginService) { }
+
+  displayedColumns: string[] = [
+    'SourceCodeSource',
+    'SourceCodeID',
+    'Title',
+    'Description',
+    'MappedUserStories',
+    'MappedTestCases',
+    'MappedTasks'
+  ]
+  dataSource = new MatTableDataSource([]);
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -29,178 +40,21 @@ export class SourceCodeComponent implements OnInit {
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        /* console.log(this.config); */
+      }
+    )
+
+    this.data.getsourceCode().subscribe(
+      data => {
+        this.sourcecode = data['SourceCodeList'];
+        this.dataSource = new MatTableDataSource(this.sourcecode);
       }
     )
 
   }
 
-
-  titleColumns = ['SOURCE CODE'];
-  displayedColumns: string[] = [
-    'ExpandCollapse',
-    'FileName',
-    'ClassName',
-    'ClassID',
-    'MappedUserStories',
-    'MappedTestCases',
-    'MappedTasks'];
-
-}
-export interface PeriodicElement {
-  ExpandCollapse: string;
-  FileName: number;
-  ClassName: string;
-  ClassID: string;
-  MappedUserStories: number;
-  MappedTestCases: number;
-  MappedTasks: number;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
-  },
-  {
-    ExpandCollapse: 'new',
-    FileName: 1,
-    ClassName: 'hyderogen',
-    ClassID: 'H',
-    MappedUserStories: 1,
-    MappedTestCases: 1,
-    MappedTasks: 1
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  
 
-
-];
+}
