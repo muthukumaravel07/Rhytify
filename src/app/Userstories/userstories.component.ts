@@ -65,39 +65,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./userstories.component.css']
 })
 export class UserstoriesComponent implements OnInit {
-
-  config: Config[];
-  constructor(private data: LoginService) { }
-  titleColumns = ['USER STORIES'];
-  displayedColumns: string[] = [
-    'userstorysource',
-    'userstoryid',
-    'title',
-    'description',
-    'mappedtestcases',
-    'mappedtasks',
-    'mappedcode'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-
-    this.data.getConfig().subscribe(
-      data => {
-        this.config = data['Configurations'];
-      }
-    )
-
-    this.data.getConfig().subscribe(
-      data => {
-        this.config = data['Configurations'];
-      }
-    )
-
-
-
+  
+    config: Config[];
+    constructor(private data: LoginService) { }
+    titleColumns = ['USER STORIES'];
+    displayedColumns: string[] = [
+      'userstorysource',
+      'userstoryid',
+      'title',
+      'description',
+      'mappedtestcases',
+      'mappedtasks',
+      'mappedcode'];
+    dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+  
+    ngOnInit() {
+      this.dataSource.paginator = this.paginator;
+      this.data.getConfig().subscribe(
+        data => {
+          this.config = data['Configurations'];
+          /* console.log(this.config); */
+        }
+      )
+    }
+  
   }
-
-}
