@@ -29,7 +29,7 @@ export class SourceCodeComponent implements OnInit {
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        console.log(this.config);
+        /* console.log(this.config); */
       }
     )
 

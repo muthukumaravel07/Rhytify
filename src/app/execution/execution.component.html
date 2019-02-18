@@ -1,99 +1,90 @@
 <div class="main">
-  <mat-grid-list class="grid-top"cols="4" rowHeight=" 2:1" >
-    <mat-grid-tile>
-        <mat-card > 
-            <mat-card-content>
-                 <img src="./assets/1.png">
-                        &nbsp; &nbsp;Source Control &nbsp;&nbsp;| &nbsp;&nbsp; TFS
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-            <mat-card > 
+    <mat-grid-list cols="4" rowHeight=" 2:1">
+        <mat-grid-tile *ngFor="let cardDetail of config; let i = index; let j = index;">
+            <mat-card *ngIf="j < 4">
                 <mat-card-content>
-                     <img src="./assets/2.png">
-                            &nbsp; &nbsp; User Story &nbsp;&nbsp;| &nbsp;&nbsp; TFS
+                    <img src="./assets/{{j+1}}.png"> &nbsp; &nbsp;{{cardDetail.Key}} &nbsp;&nbsp;
+                    <br> &nbsp;&nbsp;
+                    <div *ngIf="cardDetail.Options[0]">
+                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[0].Value== 1">
+                            <b>{{cardDetail.Options[0].key}}</b>
+                        </div>
+                    </div>
+                    <div *ngIf="cardDetail.Options[1]">
+                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[1].Value== 1">
+                            <b>{{cardDetail.Options[1].key}}</b>
+                        </div>
+                    </div>
+                    <div *ngIf="cardDetail.Options[2]">
+                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[2].Value== 1">
+                            <b>{{cardDetail.Options[2].key}}</b>
+                        </div>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list class="col" cols="6" rowHeight='100px' align="center" [cols]="breakpoint" (window:resize)="onResize($event)">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            EXECUTION
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile>Execution Name</mat-grid-tile>
         <mat-grid-tile>
-                <mat-card > 
-                    <mat-card-content>
-                         <img src="./assets/3.png">
-                                &nbsp; &nbsp;Task&nbsp;&nbsp;| &nbsp;&nbsp; TFS
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                    <mat-card > 
-                        <mat-card-content>
-                             <img src="./assets/4.png">
-                                    &nbsp; &nbsp;Test Case&nbsp;&nbsp;| &nbsp;&nbsp; TFS
-                        </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
-  </mat-grid-list> 
-
-<mat-grid-list class="col" cols="6" rowHeight='100px' align="center"  [cols]="breakpoint"  (window:resize)="onResize($event)"> 
-    <mat-grid-tile   [colspan]="2" [rowspan]="1">
-      EXECUTION
-    </mat-grid-tile>
-    <mat-grid-tile  *ngIf="breakpoint==6"  [colspan]="2" [rowspan]="1"></mat-grid-tile>
-    <mat-grid-tile  *ngIf="breakpoint==6"  [colspan]="2" [rowspan]="1"></mat-grid-tile>
-  <mat-grid-tile>Execution Name</mat-grid-tile>
-  <mat-grid-tile> 
-      <mat-form-field appearance="outline" class="example-full-width">
-          <input matInput class="mytext" autofocus="autofocus">
-      </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile>Source Technology</mat-grid-tile>
-  <mat-grid-tile>
-      <mat-form-field appearance="outline">
-          <mat-select>
-            <mat-option *ngFor="let src of srcs" [value]="src.valuest">
-              {{src.viewValuest}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile>Input Folder Path</mat-grid-tile>
-  <mat-grid-tile>
-      <mat-form-field appearance="outline" class="example-full-width">
-          <input matInput class="mytext">
-      </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile>GenerateModel</mat-grid-tile>
-  <mat-grid-tile> <mat-form-field appearance="outline">
-      <mat-select>
-        <mat-option *ngFor="let genmodel of genmodels" [value]="genmodel.valuegm">
-          {{genmodel.viewValuegm}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile>ModelPriority</mat-grid-tile>
-  <mat-grid-tile><mat-form-field appearance="outline">
-      <mat-select>
-        <mat-option *ngFor="let priorimodel of priorimodels" [value]="priorimodel.valuepm">
-          {{priorimodel.viewValuepm}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile>Output Folder Path</mat-grid-tile>
-  <mat-grid-tile>
-    <mat-form-field appearance="outline" class="example-full-width">
-      <input matInput class="mytext" autofocus="autofocus">
-  </mat-form-field>
-</mat-grid-tile>
-<mat-grid-tile [colspan]="2" [rowspan]="1">
-    <button mat-raised-button color="primary" title="Hit the Parse Code Button after providing the input to Parse the code">Parse Code</button>          
-</mat-grid-tile>
-<mat-grid-tile *ngIf="breakpoint==6" class="c" [colspan]="2" [rowspan]="1"></mat-grid-tile>
-<mat-grid-tile [colspan]="2" [rowspan]="1">
-    <button mat-raised-button color="primary" title="Hit the Generate Sequence Diagram Button after Parsing">Generate Sequence Diagram</button>              
-</mat-grid-tile>
-</mat-grid-list>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <input matInput class="mytext" autofocus="autofocus">
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>Source Technology</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-select>
+                    <mat-option *ngFor="let src of srcs" [value]="src.valuest">
+                        {{src.viewValuest}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>Input Folder Path</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <input matInput class="mytext">
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>GenerateModel</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-select>
+                    <mat-option *ngFor="let genmodel of genmodels" [value]="genmodel.valuegm">
+                        {{genmodel.viewValuegm}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>ModelPriority</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <mat-select>
+                    <mat-option *ngFor="let priorimodel of priorimodels" [value]="priorimodel.valuepm">
+                        {{priorimodel.viewValuepm}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>Output Folder Path</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <input matInput class="mytext" autofocus="autofocus">
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <button mat-raised-button color="primary" title="Hit the Parse Code Button after providing the input to Parse the code">Parse Code</button>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="breakpoint==6" class="c" [colspan]="2" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <button mat-raised-button color="primary" title="Hit the Generate Sequence Diagram Button after Parsing">Generate Sequence Diagram</button>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
-
-

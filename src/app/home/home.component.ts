@@ -23,13 +23,13 @@ export class HomeComponent implements OnInit {
       this.data.getHome().subscribe(
         data => {
           this.home = data['ProjectSummaryList'];
-          console.log(this.home);
+          /* console.log(this.home); */
         }
       );
       this.data.getConfig().subscribe(
         data => {
           this.config = data['Configurations'];
-          console.log(this.config);
+          /* console.log(this.config); */
         }
       )
     }

@@ -7,8 +7,12 @@
   top: 17%;
   margin-bottom: 100px;
 }
+
 mat-divider{
   border-color: rgba(12, 8, 206, 0.575);
+}
+i{
+  font-size: 15px;
 }
 
 .host {
@@ -18,8 +22,8 @@ mat-divider{
 }
 
 .example-card {
-  min-width: 265px;
-  max-width: 265px;
+  min-width: 180px;
+  max-width: 180px;
   min-height: 250px;
   
 } 

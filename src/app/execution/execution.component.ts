@@ -1,4 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { LoginService } from '../loginService/login.service';
+
+export interface Config {
+  Key: string;
+  Description: string;
+  OptionType: string;
+  Options: object;
+}
 
 export interface sourcetechnology {
   valuest: string;
@@ -19,16 +28,25 @@ export interface prioritymodel {
 })
 export class ExecutionComponent implements OnInit {
 
-  constructor() { }
+  config: Config[];
+
+  constructor(private data: LoginService) { }
   breakpoint: number;
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 700) ? 2 : 6;
-    console.log(this.breakpoint);
+
+    this.data.getConfig().subscribe(
+      data => {
+        this.config = data['Configurations'];
+        /* console.log(this.config); */
+      }
+    )
+    /* console.log(this.breakpoint); */
 }
 
 onResize(event) {
   this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
-  console.log(this.breakpoint);
+  /* console.log(this.breakpoint); */
 
 }
    srcs: sourcetechnology[] = [

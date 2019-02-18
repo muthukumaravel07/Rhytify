@@ -113,7 +113,7 @@ export class LoginComponent implements OnInit {
     this.data.login(/* this.model.companyLocation */ this.officeControl.value.Name, /* this.model.project */this.projectControl.value.Name, this.model.username, this.model.password)
       .subscribe((success: { token: string }) => {
         if (success) {
-          console.log('Paramaters successfully passed and response received', success);
+          /* console.log('Paramaters successfully passed and response received', success); */
           this.cookieService.set('jwtToken', success.token);
           this.cookieService.set('companyLocation', this.officeControl.value.Name);
           this.cookieService.set('companyID', this.officeControl.value.Id);
@@ -122,7 +122,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/menu/home']);
         }
         else {
-          console.log('Login failed');
+          /* console.log('Login failed'); */
         }
       }
       );

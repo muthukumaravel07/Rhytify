@@ -12,13 +12,13 @@ import 'rxjs/add/operator/map';
 )
 export class LoginService {
   URL = 'http://172.20.126.27:3000/auth'; /*  http://httpbin.org/post  */
-  URLCompanies = /* 'http://172.20.126.16/RhytifyAPI/api/login'; */ './assets/login.json';
-  URLConfig = /* 'http://172.20.126.16/RhytifyAPI/api/configurations'; */ './assets/configurations.json';
-  URLProjectSummary = /* 'http://172.20.126.16/RhytifyAPI/api/projectSummary'; */ './assets/projectSummary.json';
+  URLCompanies = 'http://172.20.126.16/RhytifyAPI/api/login'; /* './assets/login.json'; */
+  URLConfig = 'http://172.20.126.16/RhytifyAPI/api/configurations'; /* './assets/configurations.json'; */
+  URLProjectSummary = 'http://172.20.126.16/RhytifyAPI/api/projectSummary'; /* './assets/projectSummary.json'; */
   URLuserStories = /* 'http://172.20.126.16/RhytifyAPI/api/userStories'; */ './assets/userStories.json';
-  URLtasks = /* 'http://172.20.126.16/RhytifyAPI/api/tasks'; */ './assets/tasks.json';
-  URLtestCases = /* 'http://172.20.126.16/RhytifyAPI/api/testCases'; */ './assets/testCases.json';
-  URlsourceCode = /* 'http://172.20.126.16/RhytifyAPI/api/sourceCode'; */ './assets/sourceCode.json';
+  URLtasks = 'http://172.20.126.16/RhytifyAPI/api/tasks'; /* './assets/tasks.json'; */
+  URLtestCases = 'http://172.20.126.16/RhytifyAPI/api/testCases'; /* './assets/testCases.json'; */
+  URlsourceCode = 'http://172.20.126.16/RhytifyAPI/api/sourceCode'; /* './assets/sourceCode.json'; */
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
   getCompanies(): Observable<any> {
@@ -37,6 +37,12 @@ export class LoginService {
 
   loggedIn() {
     return !!this.cookie.get('jwtToken');
+  }
+
+
+
+  getUserStories(){
+    return this.http.get(this.URLuserStories);
   }
 
 }

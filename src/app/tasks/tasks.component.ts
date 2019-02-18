@@ -39,7 +39,7 @@ export class TasksComponent implements OnInit {
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        console.log(this.config);
+        /* console.log(this.config); */
       }
     )
   }
@@ -56,6 +56,51 @@ export interface PeriodicElement {
   mappedcode: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
+  {
+    tasksource: 'new',
+    taskid: 1,
+    title: 'hyderogen',
+    description: 'H',
+    mappedtestcases: 1,
+    mappeduserstories: 1,
+    mappedcode: 1
+  },
+  {
+    tasksource: 'new',
+    taskid: 1,
+    title: 'hyderogen',
+    description: 'H',
+    mappedtestcases: 1,
+    mappeduserstories: 1,
+    mappedcode: 1
+  },
+  {
+    tasksource: 'new',
+    taskid: 1,
+    title: 'hyderogen',
+    description: 'H',
+    mappedtestcases: 1,
+    mappeduserstories: 1,
+    mappedcode: 1
+  },
+  {
+    tasksource: 'new',
+    taskid: 1,
+    title: 'hyderogen',
+    description: 'H',
+    mappedtestcases: 1,
+    mappeduserstories: 1,
+    mappedcode: 1
+  },
+  {
+    tasksource: 'new',
+    taskid: 1,
+    title: 'hyderogen',
+    description: 'H',
+    mappedtestcases: 1,
+    mappeduserstories: 1,
+    mappedcode: 1
+  },
   {
     tasksource: 'new',
     taskid: 1,
