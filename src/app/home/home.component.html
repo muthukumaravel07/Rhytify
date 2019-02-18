@@ -4,7 +4,7 @@
     <div fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header class="mat-header">
-          <mat-card-title>{{details.key}}</mat-card-title>
+          <mat-card-title><i><b>{{details.key}}</b></i></mat-card-title>
           <div fxFlex></div>
           <mat-icon>refresh</mat-icon>&nbsp;
           <mat-icon>visibility</mat-icon>
@@ -14,9 +14,14 @@
         <br>
         <br>
         <mat-card-content>
-          <div class="div-img" mat-card-avatar style="float:left">
-            <img src="./assets/{{11+i}}.svg">
+          
+          
+          <div  *ngIf="i<4; else elseBlock" class="div-img" mat-card-avatar style="float:left">
+            <img src="./assets/{{15+i}}.svg">
           </div>
+          <ng-template #elseBlock><img src="./assets/Bug.png"></ng-template>
+
+
           <div class="div-text" style="float:right">
             {{details.Value}}
           </div>
@@ -25,36 +30,20 @@
     </div>
   </ng-container>
 
-  <!-- 4 sgfrsgtgtrgtr-->
-  <ng-container>
-    <div fxFlex.lt-sm="100%" class="host">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Test Cases Management</mat-card-title>
-          <div fxFlex></div>
-          <mat-icon>refresh</mat-icon>&nbsp;
-          <mat-icon>visibility</mat-icon>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
-        <br>
-        <mat-card-content>
-          <div class="div-img" mat-card-avatar style="float:left">
-            <img src="./assets/14.svg">
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
+ 
 
   <!-- 5-7 -->
   <ng-container *ngFor="let cardDetail of config; let i = index; let j = index;">
 
-    <div *ngIf="j < 4" fxFlex.lt-sm="100%" class="host">
+    <div *ngIf="j < 5" fxFlex.lt-sm="100%" class="host">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>{{cardDetail.Key}}</mat-card-title>
+          
+          
+          <mat-card-title *ngIf="cardDetail.Key!='Test Case Management'; else eBlock"><i><b>{{cardDetail.Key}}</b></i></mat-card-title>
+          <ng-template #eBlock><i><b>Test Case</b></i></ng-template>
+          
+          
           <div fxFlex></div>
           <mat-icon>edit</mat-icon>
         </mat-card-header>
@@ -63,9 +52,15 @@
         <br>
         <br>
         <mat-card-content>
-          <div class="div-img" mat-card-avatar style="float:left">
+          
+          
+          <div  *ngIf="cardDetail.Key!='Bugs'" class="div-img" mat-card-avatar style="float:left">
             <img src="./assets/{{15+i}}.svg">
           </div>
+          <div  *ngIf="cardDetail.Key=='Bugs'" class="div-img" mat-card-avatar style="float:left">
+            <img src="./assets/Bug.png">
+          </div>
+        
           <div *ngIf="cardDetail.Options[0]">
             <div class="div-options" style="float:right" *ngIf="cardDetail.Options[0].Value== 1">
               {{cardDetail.Options[0].key}}
@@ -86,4 +81,5 @@
     </div>
   </ng-container>
 
+</div>
   

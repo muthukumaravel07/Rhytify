@@ -10,6 +10,54 @@ export interface Config {
   Options: object;
 }
 
+export interface PeriodicElement {
+  userstorysource: string;
+  userstoryid: number;
+  title: string;
+  description: string;
+ 
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  },
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  },
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  },
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  },
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  },
+  {
+    userstorysource: 'new',
+    userstoryid: 1,
+    title: 'hyderogen',
+    description: 'H'
+  }
+];
+
+
+
 
 @Component({
   selector: 'app-userstories',
@@ -39,30 +87,17 @@ export class UserstoriesComponent implements OnInit {
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        console.log(this.config);
       }
     )
+
+    this.data.getConfig().subscribe(
+      data => {
+        this.config = data['Configurations'];
+      }
+    )
+
+
+
   }
 
 }
-export interface PeriodicElement {
-  userstorysource: string;
-  userstoryid: number;
-  title: string;
-  description: string;
-  mappedtestcases: number;
-  mappedtasks: number;
-  mappedcode: number;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    userstorysource: 'new',
-    userstoryid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappedtasks: 1,
-    mappedcode: 1
-  }
-];
-

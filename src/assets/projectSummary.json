@@ -11,6 +11,14 @@
         {
             "key": "Tasks",
             "Value": 1
+        },
+        {
+            "key": "TestCases",
+            "Value": 1
+        },
+        {
+            "key": "Bugs",
+            "Value": 1
         }
     ]
 }

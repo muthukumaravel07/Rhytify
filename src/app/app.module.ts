@@ -4,21 +4,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule, Routes} from '@angular/router';import { CookieService } from 'ngx-cookie-service';
+import { RouterModule, Routes } from '@angular/router'; import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './auth/auth.guard';
 import { MenuComponent } from './MenuBar/menu.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule} from './material';
+import { MaterialModule } from './material';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './token/token-interceptor.service';
 import { ConfigurationComponent } from './Configuration/configuration.component';
 import { HomeComponent } from './home/home.component';
-import {MatTableModule, MatPaginator } from '@angular/material';
+import { MatTableModule, MatPaginator } from '@angular/material';
 import { UserstoriesComponent } from './userstories/userstories.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
-import { MatTableDataSource} from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import { ExecutionComponent } from './execution/execution.component';
 import { TestCaseComponent } from './test-case/test-case.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -55,24 +55,24 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path:'execution',
-        component:ExecutionComponent,
-        canActivate:[AuthGuard]
+        path: 'execution',
+        component: ExecutionComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path:'testcase',
-        component:TestCaseComponent,
-        canActivate:[AuthGuard]
+        path: 'testcase',
+        component: TestCaseComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path:'tasks',
-        component:TasksComponent,
-        canActivate:[AuthGuard]
+        path: 'tasks',
+        component: TasksComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path:'sourcecode',
-        component:SourceCodeComponent,
-        canActivate:[AuthGuard]
+        path: 'sourcecode',
+        component: SourceCodeComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },
@@ -93,7 +93,7 @@ const routes: Routes = [
       TestCaseComponent,
       TasksComponent,
       SourceCodeComponent,
-      
+
     ],
     imports:
     [
@@ -108,7 +108,7 @@ const routes: Routes = [
       RouterModule.forRoot(routes),
       MatPaginatorModule
     ],
-    exports: [ RouterModule],
+    exports: [RouterModule],
     providers:
     [
       {
@@ -119,7 +119,7 @@ const routes: Routes = [
       CookieService,
       AuthGuard
     ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [AppComponent]
   }
 )
 export class AppModule { }

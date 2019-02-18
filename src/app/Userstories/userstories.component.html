@@ -1,4 +1,5 @@
 <div class="full">
+
     <mat-grid-list cols="4" rowHeight=" 2:1">
         <mat-grid-tile *ngFor="let cardDetail of config; let i = index; let j = index;">
             <mat-card *ngIf="j < 4">
@@ -24,7 +25,6 @@
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
-
     <mat-form-field appearance="outline" class="search-class">
         <mat-label>Search</mat-label>
         <mat-icon matPrefix>search</mat-icon>
@@ -51,15 +51,15 @@
             </ng-container>
             <ng-container matColumnDef="mappedtestcases">
                 <th mat-header-cell *matHeaderCellDef>Mapped Test Cases</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedtestcases}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
             <ng-container matColumnDef="mappedtasks">
                 <th mat-header-cell *matHeaderCellDef>Mapped Tasks</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedtasks}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
             <ng-container matColumnDef="mappedcode">
                 <th mat-header-cell *matHeaderCellDef>Mapped Code</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedcode}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
 
 
