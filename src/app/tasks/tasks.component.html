@@ -27,38 +27,38 @@
     <mat-form-field appearance="outline" class="search-class">
         <mat-label>Search</mat-label>
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput>
+        <input matInput matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
     <div class="user-table">
         <p>TASKS</p>
         <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="tasksource">
+            <ng-container matColumnDef="TaskSource">
                 <th mat-header-cell *matHeaderCellDef>Task Source</th>
-                <td mat-cell *matCellDef="let element">{{element.tasksource}} </td>
+                <td mat-cell *matCellDef="let element">{{element.TaskSource}} </td>
             </ng-container>
-            <ng-container matColumnDef="taskid">
+            <ng-container matColumnDef="TaskID">
                 <th mat-header-cell *matHeaderCellDef>Task ID</th>
-                <td mat-cell *matCellDef="let element"> {{element.taskid}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.TaskID}} </td>
             </ng-container>
-            <ng-container matColumnDef="title">
+            <ng-container matColumnDef="Title">
                 <th mat-header-cell *matHeaderCellDef>Title</th>
-                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
             </ng-container>
-            <ng-container matColumnDef="description">
+            <ng-container matColumnDef="Description">
                 <th mat-header-cell *matHeaderCellDef>Description</th>
-                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
             </ng-container>
             <ng-container matColumnDef="mappedtestcases">
                 <th mat-header-cell *matHeaderCellDef>Mapped Test Cases</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedtestcases}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
             <ng-container matColumnDef="mappeduserstories">
                 <th mat-header-cell *matHeaderCellDef>Mapped User Stories</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappeduserstories}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
             <ng-container matColumnDef="mappedcode">
                 <th mat-header-cell *matHeaderCellDef>Mapped Code</th>
-                <td mat-cell *matCellDef="let element"> {{element.mappedcode}} </td>
+                <td mat-cell *matCellDef="let element"> 1 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

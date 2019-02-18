@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-
 import { LoginService } from '../loginService/login.service';
 
 export interface Config {
@@ -16,98 +15,45 @@ export interface Config {
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
+
   config: Config[];
+  tasks: any[];
+
   constructor(private data: LoginService) { }
 
-
-
-  titleColumns = ['TASKS'];
   displayedColumns: string[] = [
-    'tasksource',
-    'taskid',
-    'title',
-    'description',
+    'TaskSource',
+    'TaskID',
+    'Title',
+    'Description',
     'mappedtestcases',
     'mappeduserstories',
-    'mappedcode'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+    'mappedcode'
+  ];
+  dataSource = new MatTableDataSource([]);
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
-        /* console.log(this.config); */
+      }
+    )
+
+
+    this.data.gettasks().subscribe(
+      data => {
+        this.tasks = data['TasksList'];
+        this.dataSource = new MatTableDataSource(this.tasks);
       }
     )
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
 
-export interface PeriodicElement {
-  tasksource: string;
-  taskid: number;
-  title: string;
-  description: string;
-  mappedtestcases: number;
-  mappeduserstories: number;
-  mappedcode: number;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  },
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  },
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  },
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  },
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  },
-  {
-    tasksource: 'new',
-    taskid: 1,
-    title: 'hyderogen',
-    description: 'H',
-    mappedtestcases: 1,
-    mappeduserstories: 1,
-    mappedcode: 1
-  }
-];
