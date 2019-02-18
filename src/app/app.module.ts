@@ -24,7 +24,6 @@ import { TestCaseComponent } from './test-case/test-case.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SourceCodeComponent } from './source-code/source-code.component';
 
-
 const routes: Routes = [
   {
     path: '',
