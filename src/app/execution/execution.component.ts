@@ -20,7 +20,7 @@ export interface generalmodel {
 export interface prioritymodel {
   valuepm: string;
   viewValuepm: string;
-} 
+}
 @Component({
   selector: 'app-execution',
   templateUrl: './execution.component.html',
@@ -42,14 +42,14 @@ export class ExecutionComponent implements OnInit {
       }
     )
     /* console.log(this.breakpoint); */
-}
+  }
 
-onResize(event) {
-  this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
-  /* console.log(this.breakpoint); */
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
+    /* console.log(this.breakpoint); */
 
-}
-   srcs: sourcetechnology[] = [
+  }
+  srcs: sourcetechnology[] = [
     { valuest: 'c#-0', viewValuest: 'C#' },
     { valuest: 'java-1', viewValuest: 'Java' },
   ];

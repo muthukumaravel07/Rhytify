@@ -18,6 +18,7 @@ export class SourceCodeComponent implements OnInit {
 
   config: Config[];
   sourcecode: any[];
+  breakpoint: number;
 
   constructor(private data: LoginService) { }
 
@@ -36,6 +37,7 @@ export class SourceCodeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
+    this.breakpoint = window.innerWidth;
     this.dataSource.paginator = this.paginator;
     this.data.getConfig().subscribe(
       data => {
@@ -50,6 +52,10 @@ export class SourceCodeComponent implements OnInit {
       }
     )
 
+  }
+  onResize(event) {
+    this.breakpoint = event.target.innerWidth;
+    console.log(this.breakpoint);
   }
 
   applyFilter(filterValue: string) {

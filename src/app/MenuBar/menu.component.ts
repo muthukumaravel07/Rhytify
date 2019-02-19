@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../loginService/login.service';
 import { Router } from "@angular/router";
+import { FormControl, Validators } from '@angular/forms';
 
 export interface Project {
   value: string;
@@ -21,10 +22,9 @@ export interface Proj {
   }
 )
 export class MenuComponent implements OnInit {
-  projects: Project[] = [
-    { value: 'RhytifyServiceeAPI' },
-    { value: 'Rhytify' }
-  ];
+
+
+  projectControl = new FormControl('', [Validators.required]);
   UserName: string;
   CompLoc: string;
   pro: string;
@@ -33,10 +33,10 @@ export class MenuComponent implements OnInit {
 
   constructor(private cookie: CookieService, private data: LoginService, private router: Router) { }
 
-  ngOnInit() { 
-    this.UserName= this.cookie.get('username'); 
-    this.CompLoc= this.cookie.get('companyID');
-    this.pro= this.cookie.get('project');
+  ngOnInit() {
+    this.UserName = this.cookie.get('username');
+    this.CompLoc = this.cookie.get('companyID');
+    this.pro = this.cookie.get('project');
     this.data.getCompanies().subscribe(
       data => {
         this.proj = data["Projects"];
@@ -44,7 +44,13 @@ export class MenuComponent implements OnInit {
     )
 
   }
-  logout(){
+  test() {
+    this.cookie.delete('project');
+    this.cookie.set('project', this.pro);
+
+  }
+
+  logout() {
     this.cookie.deleteAll();
     this.router.navigate(['/login']);
   }

@@ -18,6 +18,7 @@ export class TestCaseComponent implements OnInit {
 
   config: Config[];
   testcase: any[];
+  breakpoint: number;
 
   constructor(private data: LoginService) { }
 
@@ -35,6 +36,7 @@ export class TestCaseComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
+    this.breakpoint = window.innerWidth;
     this.dataSource.paginator = this.paginator;
 
     this.data.getConfig().subscribe(
@@ -48,6 +50,10 @@ export class TestCaseComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.testcase);
       }
     )
+  }
+  onResize(event) {
+    this.breakpoint = event.target.innerWidth;
+    console.log(this.breakpoint);
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
