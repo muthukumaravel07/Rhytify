@@ -14,7 +14,7 @@ export interface sourcetechnology {
   viewValuest: string;
 }
 export interface generalmodel {
-  valuesgm: string;
+  valuegm: string;
   viewValuegm: string;
 }
 export interface prioritymodel {
@@ -54,8 +54,8 @@ export class ExecutionComponent implements OnInit {
     { valuest: 'java-1', viewValuest: 'Java' },
   ];
   genmodels: generalmodel[] = [
-    { valuesgm: 'yes-0', viewValuegm: 'Yes' },
-    { valuesgm: 'no-1', viewValuegm: 'No' },
+    { valuegm: 'yes-0', viewValuegm: 'Yes' },
+    { valuegm: 'no-1', viewValuegm: 'No' },
   ];
   priorimodels: prioritymodel[] = [
     { valuepm: 'level-0', viewValuepm: 'Class Level' },
