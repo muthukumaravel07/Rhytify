@@ -54,24 +54,6 @@ export class LoginComponent implements OnInit {
     )
   }
 
-
-
-
-
-  GroupO: Office[] = [
-    { name: 'Samsung_Delta' },
-    { name: 'GroupO_Demo' }
-  ];
-  ValueLabs: Office[] = [
-    { name: 'RhytrifyServiceAPI' },
-    { name: 'Rhytrify' }
-  ];
-  UTMSDEMO: Office[] = [
-    { name: 'selenium' },
-    { name: 'TAF_QA' },
-    { name: 'JIRA Functionality' }
-  ];
-
   model = {
     companyLocation: '',
     project: '',
@@ -108,7 +90,7 @@ export class LoginComponent implements OnInit {
 
 
   sendReq() {
-    
+
 
     this.data.login(/* this.model.companyLocation */ this.officeControl.value.Name, /* this.model.project */this.projectControl.value.Name, this.model.username, this.model.password)
       .subscribe((success: { token: string }) => {

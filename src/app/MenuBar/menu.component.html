@@ -8,11 +8,11 @@
                Project&nbsp;&nbsp;&nbsp;
                 <mat-form-field >
 
-                    <mat-select [(value)]="pro" required>
+                    <mat-select [(value)]="pro" (selectionChange)="test()" required>
                         <mat-option>--Select--</mat-option>
                         <div *ngFor="let projects of proj">
                             <div *ngIf="projects.CompanyId==CompLoc">
-                                <mat-option [value]="projects.Name">
+                                <mat-option [value]="projects.Name" >
                                     <p>{{projects.Name}}</p>
                                 </mat-option>
                             </div>

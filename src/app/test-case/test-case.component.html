@@ -1,37 +1,41 @@
 <div class="full">
-    <mat-grid-list cols="4" rowHeight=" 2:1">
-        <mat-grid-tile *ngFor="let cardDetail of config; let i = index; let j = index;">
-            <mat-card *ngIf="j < 4">
-                <mat-card-content>
-                    <img src="./assets/{{j+1}}.png"> &nbsp; &nbsp;{{cardDetail.Key}} &nbsp;&nbsp;
-                    <br> &nbsp;&nbsp;
-                    <div *ngIf="cardDetail.Options[0]">
-                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[0].Value== 1">
-                            <b>{{cardDetail.Options[0].key}}</b>
+    <div *ngIf="breakpoint>=968" (window:resize)="onResize($event)">
+        <mat-grid-list cols="4" rowHeight=" 2:1">
+            <mat-grid-tile *ngFor="let cardDetail of config; let i = index; let j = index;">
+                <mat-card *ngIf="j < 4">
+                    <mat-card-content>
+                        <img src="./assets/{{j+1}}.png"> &nbsp; &nbsp;{{cardDetail.Key}} &nbsp;&nbsp;
+                        <br> &nbsp;&nbsp;
+                        <div *ngIf="cardDetail.Options[0]">
+                            <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[0].Value== 1">
+                                <b>{{cardDetail.Options[0].key}}</b>
+                            </div>
                         </div>
-                    </div>
-                    <div *ngIf="cardDetail.Options[1]">
-                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[1].Value== 1">
-                            <b>{{cardDetail.Options[1].key}}</b>
+                        <div *ngIf="cardDetail.Options[1]">
+                            <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[1].Value== 1">
+                                <b>{{cardDetail.Options[1].key}}</b>
+                            </div>
                         </div>
-                    </div>
-                    <div *ngIf="cardDetail.Options[2]">
-                        <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[2].Value== 1">
-                            <b>{{cardDetail.Options[2].key}}</b>
+                        <div *ngIf="cardDetail.Options[2]">
+                            <div class="div-options" style="text-align: center" *ngIf="cardDetail.Options[2].Value== 1">
+                                <b>{{cardDetail.Options[2].key}}</b>
+                            </div>
                         </div>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div *ngIf="breakpoint<968" (window:resize)="onResize($event)"></div>
 
-    <mat-form-field appearance="outline" class="search-class">
+    
+    <div class="user-table">
+        <p>TEST CASE</p><br>
+        <mat-form-field appearance="outline" class="search-class">
             <mat-label>Search</mat-label>
             <mat-icon matPrefix>search</mat-icon>
             <input matInput matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
-    <div class="user-table">
-        <p>TEST CASE</p>
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="TestCaseSource">
                 <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
@@ -66,8 +70,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [length]="20" [pageSize]="5" [pageSizeOptions]="[5, 10, 15, 20]">
-        </mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 
 </div>

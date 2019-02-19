@@ -14,13 +14,13 @@ export interface sourcetechnology {
   viewValuest: string;
 }
 export interface generalmodel {
-  valuesgm: string;
+  valuegm: string;
   viewValuegm: string;
 }
 export interface prioritymodel {
   valuepm: string;
   viewValuepm: string;
-} 
+}
 @Component({
   selector: 'app-execution',
   templateUrl: './execution.component.html',
@@ -42,20 +42,20 @@ export class ExecutionComponent implements OnInit {
       }
     )
     /* console.log(this.breakpoint); */
-}
+  }
 
-onResize(event) {
-  this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
-  /* console.log(this.breakpoint); */
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
+    /* console.log(this.breakpoint); */
 
-}
-   srcs: sourcetechnology[] = [
+  }
+  srcs: sourcetechnology[] = [
     { valuest: 'c#-0', viewValuest: 'C#' },
     { valuest: 'java-1', viewValuest: 'Java' },
   ];
   genmodels: generalmodel[] = [
-    { valuesgm: 'yes-0', viewValuegm: 'Yes' },
-    { valuesgm: 'no-1', viewValuegm: 'No' },
+    { valuegm: 'yes-0', viewValuegm: 'Yes' },
+    { valuegm: 'no-1', viewValuegm: 'No' },
   ];
   priorimodels: prioritymodel[] = [
     { valuepm: 'level-0', viewValuepm: 'Class Level' },
