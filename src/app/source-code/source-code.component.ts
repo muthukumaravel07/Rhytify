@@ -55,7 +55,6 @@ export class SourceCodeComponent implements OnInit {
   }
   onResize(event) {
     this.breakpoint = event.target.innerWidth;
-    console.log(this.breakpoint);
   }
 
   applyFilter(filterValue: string) {
