@@ -9,23 +9,25 @@
     width:70%;  
     position: absolute;
 }
-.col{
+.grid-2{
+    position: relative;
+    max-width: 75%;
+    margin-top:-15%;
+    margin-left: auto;
+    margin-right: auto;
     border-style: solid;
-    border-color: rgb(100, 94, 94);
-    border-radius: 10px;
+    border-color: rgb(112, 109, 109);
+    border-radius: 7px;
     align-items: center;
-    width: 80%;    
-    display:flex; 
-    margin-left: 10%; 
+    background-color: white;
 }
 .main{
-     margin-top: 5%;
-     position: relative;
+     margin-top: 10%;
+     margin-bottom: 10%;
  }
  .h{
-     background-color: rgb(221, 220, 219);
+     background-color: rgb(18, 101, 156);
  }
-
 .grid-top {
    position: relative;
    max-width: 60%;
@@ -34,4 +36,10 @@
  }
  mat-card {
     width:80%;
-  }
+ }
+.grid-1{
+   position: relative;
+   max-width: 60%;
+   margin-top:5%;
+   left:20%; 
+ }
