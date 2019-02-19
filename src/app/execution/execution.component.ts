@@ -29,11 +29,13 @@ export interface prioritymodel {
 export class ExecutionComponent implements OnInit {
 
   config: Config[];
+  abc: number;
 
   constructor(private data: LoginService) { }
   breakpoint: number;
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 700) ? 2 : 6;
+    this.abc = window.innerWidth;
 
     this.data.getConfig().subscribe(
       data => {
@@ -46,6 +48,7 @@ export class ExecutionComponent implements OnInit {
 
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 700) ? 2 : 6;
+    this.abc = event.target.innerWidth;
     /* console.log(this.breakpoint); */
 
   }
