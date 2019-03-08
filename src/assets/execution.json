@@ -1,0 +1,43 @@
+{
+    "MasterDataList": [
+        {
+            "key": "SourceTechnology",
+            "Value": [
+                {
+                    "key": "C#",
+                    "Value": 1
+                },
+                {
+                    "key": "Java",
+                    "Value": 0
+                }
+            ]
+        },
+        {
+            "key": "GenerateModel",
+            "Value": [
+                {
+                    "key": "Yes",
+                    "Value": 1
+                },
+                {
+                    "key": "No",
+                    "Value": 0
+                }
+            ]
+        },
+        {
+            "key": "ModelPriority",
+            "Value": [
+                {
+                    "key": "ClassLevel",
+                    "Value": 1
+                },
+                {
+                    "key": "ConsolidatedLevel",
+                    "Value": 0
+                }
+            ]
+        }
+    ]
+}
