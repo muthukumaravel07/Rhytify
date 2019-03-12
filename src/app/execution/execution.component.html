@@ -27,18 +27,12 @@
         </mat-grid-list>
 
 
-<!-- jvckwenvuivnweuidvnwiyvsdy -->
+        <!-- jvckwenvuivnweuidvnwiyvsdy -->
 
 
         <mat-grid-list class="grid-2" cols="6" rowHeight='88px' align="center" [cols]="breakpoint" (window:resize)="onResize($event)">
-            <mat-grid-tile [colspan]="2" [rowspan]="1" class="h">
+            <mat-grid-tile [colspan]="6" [rowspan]="1" class="h">
                 <p>EXECUTION</p>
-            </mat-grid-tile>
-            <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1" class="h">
-                
-            </mat-grid-tile>
-            <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1" class="h">
-                
             </mat-grid-tile>
             <mat-grid-tile>Execution Name</mat-grid-tile>
             <mat-grid-tile>
@@ -46,13 +40,16 @@
                     <input matInput class="mytext" autofocus="autofocus">
                 </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>Source Technology</mat-grid-tile>
+            <mat-grid-tile>{{exec[0].key}}</mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-select>
-                        <mat-option *ngFor="let src of srcs" [value]="src.valuest">
-                            {{src.viewValuest}}
-                        </mat-option>
+                        <mat-option>--Select--</mat-option>
+                        <div *ngFor="let something of exec; let i=index">
+                            <mat-option *ngIf="i<2">
+                                {{exec[0].Value[i].key}}
+                            </mat-option>
+                        </div>
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
@@ -62,23 +59,29 @@
                     <input matInput class="mytext">
                 </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>GenerateModel</mat-grid-tile>
+            <mat-grid-tile>{{exec[1].key}}</mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-select>
-                        <mat-option *ngFor="let genmodel of genmodels" [value]="genmodel.valuegm">
-                            {{genmodel.viewValuegm}}
-                        </mat-option>
+                        <mat-option>--Select--</mat-option>
+                        <div *ngFor="let something of exec; let i=index">
+                                <mat-option *ngIf="i<2">
+                                    {{exec[1].Value[i].key}}
+                                </mat-option>
+                            </div>
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>ModelPriority</mat-grid-tile>
+            <mat-grid-tile>{{exec[2].key}}</mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-select>
-                        <mat-option *ngFor="let priorimodel of priorimodels" [value]="priorimodel.valuepm">
-                            {{priorimodel.viewValuepm}}
-                        </mat-option>
+                        <mat-option>--Select--</mat-option>
+                        <div *ngFor="let something of exec; let i=index">
+                                <mat-option *ngIf="i<2">
+                                    {{exec[2].Value[i].key}}
+                                </mat-option>
+                            </div>
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
@@ -118,10 +121,10 @@
                 <p>EXECUTION</p>
             </mat-grid-tile>
             <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1" class="h">
-                
+
             </mat-grid-tile>
             <mat-grid-tile *ngIf="breakpoint==6" [colspan]="2" [rowspan]="1" class="h">
-                
+
             </mat-grid-tile>
             <mat-grid-tile>Execution Name</mat-grid-tile>
             <mat-grid-tile>
