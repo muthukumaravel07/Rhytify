@@ -18,11 +18,9 @@ import { catchError } from 'rxjs/internal/operators';
 )
 export class TokenInterceptorService implements HttpInterceptor {
   constructor(public auth: LoginService, private cookieService: CookieService) {
-    /* console.log(' inside TIS '); */
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.cookieService.get('jwtToken')) {
-      /* console.log('inside TIS (not first request)', this.cookieService.get('jwtToken')); */
       req = req.clone(
         {
           setHeaders:

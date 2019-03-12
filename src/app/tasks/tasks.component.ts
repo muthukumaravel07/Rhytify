@@ -37,7 +37,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint = window.innerWidth;
-    this.dataSource.paginator = this.paginator;
+    
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
@@ -49,6 +49,7 @@ export class TasksComponent implements OnInit {
       data => {
         this.tasks = data['TasksList'];
         this.dataSource = new MatTableDataSource(this.tasks);
+        this.dataSource.paginator = this.paginator;
       }
     )
   }

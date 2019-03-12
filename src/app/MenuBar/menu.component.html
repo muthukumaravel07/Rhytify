@@ -5,27 +5,22 @@
         <mat-toolbar class="top">
             <img src="./assets/logo1.PNG">
             <div class="settings-icon1">
-               Project&nbsp;&nbsp;&nbsp;
-                <mat-form-field >
-
+                Project&nbsp;&nbsp;&nbsp;
+                <mat-form-field>
                     <mat-select [(value)]="pro" (selectionChange)="test()" required>
                         <mat-option>--Select--</mat-option>
                         <div *ngFor="let projects of proj">
                             <div *ngIf="projects.CompanyId==CompLoc">
-                                <mat-option [value]="projects.Name" >
+                                <mat-option [value]="projects.Name">
                                     <p>{{projects.Name}}</p>
                                 </mat-option>
                             </div>
                         </div>
                     </mat-select>
                 </mat-form-field>
-            
-
-
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>|</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <img src="./assets/2.png" class="imgclass">
                 <button mat-button [matMenuTriggerFor]="a">{{UserName}}</button>&nbsp;&nbsp;&nbsp;
                 <mat-menu #a="matMenu">
@@ -64,7 +59,7 @@
                     <button mat-menu-item routerLink="/menu/testcase">TEST CASES</button>
                     <button mat-menu-item>BUGS</button>
                     <button mat-menu-item routerLink="/menu/sourcecode">SOURCE CODE</button>
-                    <button mat-menu-item>MAPPING</button>
+                    <button mat-menu-item routerLink="/menu/mapping">MAPPING</button>
                 </mat-menu>
                 <button mat-button [matMenuTriggerFor]="menu4">
                     <mat-icon>person</mat-icon> IMPACT ANALYSIS
@@ -96,7 +91,7 @@
                     <button mat-menu-item routerLink="/menu/testcase">TEST CASES</button>
                     <button mat-menu-item>BUGS</button>
                     <button mat-menu-item routerLink="/menu/sourcecode">SOURCE CODE</button>
-                    <button mat-menu-item>MAPPING</button>
+                    <button mat-menu-item routerLink="/menu/mapping">MAPPING</button>
                 </mat-menu>
                 <button mat-button [matMenuTriggerFor]="menu4">
                     <mat-icon>person</mat-icon> IMPACT ANALYSIS

@@ -38,7 +38,7 @@ export class SourceCodeComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint = window.innerWidth;
-    this.dataSource.paginator = this.paginator;
+    
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
@@ -49,6 +49,7 @@ export class SourceCodeComponent implements OnInit {
       data => {
         this.sourcecode = data['SourceCodeList'];
         this.dataSource = new MatTableDataSource(this.sourcecode);
+        this.dataSource.paginator = this.paginator;
       }
     )
 
