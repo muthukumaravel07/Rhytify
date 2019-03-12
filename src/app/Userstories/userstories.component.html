@@ -22,20 +22,21 @@
                             </div>
                         </div>
                     </mat-card-content>
-                </mat-card>
+                </mat-card>    
             </mat-grid-tile>
         </mat-grid-list>
     </div>
     <div *ngIf="breakpoint<968" (window:resize)="onResize($event)"></div>
-    
+
 
 
     <div class="user-table">
-        <p>USER STORIES</p><br>
+        <p>USER STORIES</p>
+        <br>
         <mat-form-field appearance="outline" class="search-class">
             <mat-label>Search</mat-label>
             <mat-icon matPrefix>search</mat-icon>
-            <input matInput matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
 
         <table mat-table [dataSource]="dataSource">

@@ -37,7 +37,7 @@ export class TestCaseComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint = window.innerWidth;
-    this.dataSource.paginator = this.paginator;
+    
 
     this.data.getConfig().subscribe(
       data => {
@@ -48,6 +48,7 @@ export class TestCaseComponent implements OnInit {
       data => {
         this.testcase = data['TestCasesList'];
         this.dataSource = new MatTableDataSource(this.testcase);
+        this.dataSource.paginator = this.paginator;
       }
     )
   }

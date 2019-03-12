@@ -37,7 +37,7 @@ export class UserstoriesComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint = window.innerWidth;
-    this.dataSource.paginator = this.paginator;
+    
     this.data.getConfig().subscribe(
       data => {
         this.config = data['Configurations'];
@@ -49,6 +49,7 @@ export class UserstoriesComponent implements OnInit {
       data => {
         this.userStories = data['UserStoriesList'];
         this.dataSource = new MatTableDataSource(this.userStories);
+        this.dataSource.paginator = this.paginator;
       }
     )
   }
