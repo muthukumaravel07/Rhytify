@@ -25,13 +25,13 @@ export class TokenInterceptorService implements HttpInterceptor {
         {
           setHeaders:
           {
-            Authorization: `Bearer ` + this.cookieService.get('jwtToken'),
-            'Content-Type': 'application/json'
+            'Authorization':  this.cookieService.get('jwtToken')
           }
         }
       );
+      console.log("{ 'Authorization':" + this.cookieService.get('jwtToken')+ ", 'Content-Type': 'application/json'}")
     }
-    return next.handle(req).pipe(catchError((error, caught) => {
+    return next.handle(req).pipe(catchError((error, caught) => { 
       console.log(error);
       this.handleAuthError(error);
       return of(error);

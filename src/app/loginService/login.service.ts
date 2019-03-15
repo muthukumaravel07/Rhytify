@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 )
 export class LoginService {
 
-  URL = /* 'http://172.20.126.27:3000/auth'; */  'http://httpbin.org/post'; 
+  URL = 'http://172.20.206.83/RhytifyAPI/api/token'; /* 'http://172.20.126.27:3000/auth'; */  /* 'http://httpbin.org/post'; */ 
   URLCompanies = 'http://172.20.206.83/RhytifyAPI/api/login'; /* 'http://172.20.126.16/RhytifyAPI/api/login'; */ /* './assets/login.json'; */
   URLConfig = 'http://172.20.206.83/RhytifyAPI/api/configurations'; /* 'http://172.20.126.16/RhytifyAPI/api/configurations'; */ /* './assets/configurations.json'; */
   URLProjectSummary = 'http://172.20.206.83/RhytifyAPI/api/projectsummary';/* 'http://172.20.126.16/RhytifyAPI/api/projectSummary'; */ /* './assets/projectSummary.json'; */
@@ -21,7 +21,7 @@ export class LoginService {
   URLtestCases = 'http://172.20.206.83/RhytifyAPI/api/testcases'; /* 'http://172.20.126.16/RhytifyAPI/api/testCases'; */ /* './assets/testCases.json'; */
   URLsourceCode = 'http://172.20.206.83/RhytifyAPI/api/sourcecode'; /* 'http://172.20.126.16/RhytifyAPI/api/sourceCode'; */ /* './assets/sourceCode.json'; */
   URLMapping= 'http://172.20.206.83/RhytifyAPI/api/mapping';/* './assets/mapping.json'; */
-  URLexecution = 'http://172.20.204.82/RhytifyAPI/api/masterData';/* ./assets/execution.json'; */
+  URLexecution = 'http://172.20.206.83/RhytifyAPI/api/masterData'; /* './assets/execution.json'; */
 
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
