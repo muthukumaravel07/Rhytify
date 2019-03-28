@@ -26,9 +26,7 @@ export class LoginService {
 
 
   constructor(private http: HttpClient, private cookie: CookieService) { }
-
-  
-  getmapping(){
+getmapping(){
     return this.http.get(this.URLMapping);
 
   }
