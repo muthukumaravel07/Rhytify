@@ -20,7 +20,7 @@ export class LoginService {
   URLtestCases = /* 'http://172.20.126.16/RhytifyAPI/api/testCases'; */ './assets/testCases.json';
   URlsourceCode = /* 'http://172.20.126.16/RhytifyAPI/api/sourceCode'; */ './assets/sourceCode.json';
   constructor(private http: HttpClient, private cookie: CookieService) { }
-
+//asassas
   getCompanies(): Observable<any> {
     return this.http.get(this.URLCompanies);
   }
