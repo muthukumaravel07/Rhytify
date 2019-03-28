@@ -1,0 +1,341 @@
+{
+    "UserStories": [
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 1,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 1,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 2,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 1,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 2,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 1,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 2,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 2,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 2,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 3,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 2,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 3,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 2,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 3,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 3,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 3,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 4,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 3,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 4,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 3,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 4,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 4,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 4,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 5,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 4,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 5,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 4,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 5,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 5,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 5,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 6,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 5,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 6,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 5,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 6,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 6,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 6,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 7,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 6,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 7,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 6,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 7,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        },
+        {
+            "UserStorySource": "TFS",
+            "UserStoryId": 7,
+            "Title": "US",
+            "Description": "US",
+            "MappedTestCase": [
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 7,
+                    "Title": "TC",
+                    "Description": "TC"
+                },
+                {
+                    "TestCaseSource": "TFS",
+                    "TestCaseId": 8,
+                    "Title": "TC",
+                    "Description": "TC"
+                }
+            ],
+            "MappedBugs": [
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 7,
+                    "Title": "B",
+                    "Description": "B"
+                },
+                {
+                    "BugsSource": "TFS",
+                    "BugsCaseId": 8,
+                    "Title": "B",
+                    "Description": "B"
+                }
+            ],
+            "MappedTask": [
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 7,
+                    "Title": "T",
+                    "Description": "T"
+                },
+                {
+                    "TaskSource": "TFS",
+                    "TaskCaseId": 8,
+                    "Title": "T",
+                    "Description": "T"
+                }
+            ]
+        }
+    ]
+}
+

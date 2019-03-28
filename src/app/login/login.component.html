@@ -22,6 +22,9 @@
           <mat-option>--Select--</mat-option>
           <mat-option [value]="offices" *ngFor="let offices of comploc">
             {{offices.Name}}
+          </mat-option><mat-option>--Select--</mat-option>
+          <mat-option [value]="offices" *ngFor="let offices of comploc">
+            {{offices.Name}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="officeControl.hasError('required')">Please choose a Company Location</mat-error>

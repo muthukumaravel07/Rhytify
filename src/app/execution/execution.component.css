@@ -47,6 +47,7 @@
      font-size: 22.5 px;
      font-weight: bold;
      font-family: Arial;
+     
  }
  .h{
      background-color: rgba(16, 45, 126, 0.911);
@@ -60,4 +61,8 @@
  mat-card {
     width:80%;
  }
+ input{
+     min-width: 100px;
+ }
+ /* sd vfxdb */
 

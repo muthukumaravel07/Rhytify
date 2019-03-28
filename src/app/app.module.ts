@@ -23,6 +23,7 @@ import { ExecutionComponent } from './execution/execution.component';
 import { TestCaseComponent } from './test-case/test-case.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SourceCodeComponent } from './source-code/source-code.component';
+import { MappingComponent } from './mapping/mapping.component';
 
 const routes: Routes = [
   {
@@ -73,9 +74,14 @@ const routes: Routes = [
         path: 'sourcecode',
         component: SourceCodeComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'mapping',
+        component: MappingComponent,
+        canActivate: [AuthGuard]
       }
     ]
-  },
+  }
 
 ];
 
@@ -93,6 +99,7 @@ const routes: Routes = [
       TestCaseComponent,
       TasksComponent,
       SourceCodeComponent,
+      MappingComponent
 
     ],
     imports:

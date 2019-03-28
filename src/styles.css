@@ -10,17 +10,18 @@ html,body
 }
 ::-webkit-scrollbar 
 {
-    width: 5px;
+    width: 3px;
+    height: 3px;
 }
 ::-webkit-scrollbar-track 
 {
-  background: rgb(126, 126, 126); 
+  background: rgba(0, 140, 255, 0); 
 }
 ::-webkit-scrollbar-thumb 
 {
-  background: rgb(80, 80, 80); 
+  background: rgba(0, 140, 255, 0.377); 
 }
 ::-webkit-scrollbar-thumb:hover 
 {
-  background: rgb(48, 48, 48); 
+  background: rgba(0, 55, 151, 0.521); 
 }

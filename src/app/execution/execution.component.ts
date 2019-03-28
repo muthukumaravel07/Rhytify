@@ -8,8 +8,12 @@ export interface Config {
   OptionType: string;
   Options: object;
 }
+export interface exec_value{
+  key:string;
+  Value:object;
+}
 
-export interface sourcetechnology {
+/* export interface sourcetechnology {
   valuest: string;
   viewValuest: string;
 }
@@ -20,7 +24,7 @@ export interface generalmodel {
 export interface prioritymodel {
   valuepm: string;
   viewValuepm: string;
-}
+} */
 @Component({
   selector: 'app-execution',
   templateUrl: './execution.component.html',
@@ -29,6 +33,7 @@ export interface prioritymodel {
 export class ExecutionComponent implements OnInit {
 
   config: Config[];
+  exec:exec_value;
   abc: number;
 
   constructor(private data: LoginService) { }
@@ -43,6 +48,11 @@ export class ExecutionComponent implements OnInit {
         /* console.log(this.config); */
       }
     )
+    this.data.getExecution().subscribe(
+      data => {
+        this.exec = data['MasterDataList'];
+      }
+    )
     /* console.log(this.breakpoint); */
   }
 
@@ -52,7 +62,7 @@ export class ExecutionComponent implements OnInit {
     /* console.log(this.breakpoint); */
 
   }
-  srcs: sourcetechnology[] = [
+  /* srcs: sourcetechnology[] = [
     { valuest: 'c#-0', viewValuest: 'C#' },
     { valuest: 'java-1', viewValuest: 'Java' },
   ];
@@ -63,5 +73,5 @@ export class ExecutionComponent implements OnInit {
   priorimodels: prioritymodel[] = [
     { valuepm: 'level-0', viewValuepm: 'Class Level' },
     { valuepm: 'level-1', viewValuepm: 'Consolidated Level' },
-  ];
+  ]; */
 }

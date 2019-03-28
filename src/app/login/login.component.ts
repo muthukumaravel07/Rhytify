@@ -84,19 +84,18 @@ export class LoginComponent implements OnInit {
     )
 
   }
+
   test1() {
     this.model.project = this.projectControl.value;
   }
 
 
   sendReq() {
-
-
-    this.data.login(/* this.model.companyLocation */ this.officeControl.value.Name, /* this.model.project */this.projectControl.value.Name, this.model.username, this.model.password)
-      .subscribe((success: { token: string }) => {
+    this.data.login( this.officeControl.value.Name, this.projectControl.value.Name, this.model.username, this.model.password)
+      .subscribe((success: string) => {
         if (success) {
-          /* console.log('Paramaters successfully passed and response received', success); */
-          this.cookieService.set('jwtToken', success.token);
+          
+          this.cookieService.set('jwtToken', success);
           this.cookieService.set('companyLocation', this.officeControl.value.Name);
           this.cookieService.set('companyID', this.officeControl.value.Id);
           this.cookieService.set('project', this.projectControl.value.Name);
@@ -104,7 +103,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/menu/home']);
         }
         else {
-          /* console.log('Login failed'); */
+          
         }
       }
       );
