@@ -1,249 +1,305 @@
-<div class="full" *ngIf="!mtc">
+<div class="full">
     <div id="wrapper">
         <div class="user-table" id="first">
             <p>USER STORIES</p>
             <br>
-            <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceUS">
-                    <ng-container matColumnDef="UserStorySource">
-                        <th mat-header-cell *matHeaderCellDef>User Story Source</th>
-                        <td mat-cell *matCellDef="let element"><button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStorySource}}</button></td>
-                    </ng-container>
-                    <ng-container matColumnDef="UserStoryId">
-                        <th mat-header-cell *matHeaderCellDef>User Story Id</th>
-                        <td mat-cell *matCellDef="let element">
-                            <button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStoryId}}</button>
-                        </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"><button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Title}}</button></td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"><button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Description}}</button></td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUS"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUS;" ></tr>
-                </table>
-                
-            </div><br>
+            <div class="example-container">
+                <ng-container *ngIf="count=='user' || count=='empty'; then UserBlock; else NotUserBlock">
+                </ng-container>
+
+                <ng-template #UserBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceUS1">
+                            <ng-container matColumnDef="UserStorySource">
+                                <th mat-header-cell *matHeaderCellDef>User Story Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStorySource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="UserStoryId">
+                                <th mat-header-cell *matHeaderCellDef>User Story Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStoryId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Title}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsUS"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsUS;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+                <ng-template #NotUserBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceUS">
+                            <ng-container matColumnDef="UserStorySource">
+                                <th mat-header-cell *matHeaderCellDef>User Story Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStorySource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="UserStoryId">
+                                <th mat-header-cell *matHeaderCellDef>User Story Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStoryId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Title}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateUser(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsUS"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsUS;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+            </div>
+            <br>
         </div>
         <div class="user-table" id="first">
             <p>TASKS</p>
             <br>
             <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceUS">
-                    <ng-container matColumnDef="TaskSource">
-                        <th mat-header-cell *matHeaderCellDef>Task Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.MappedTask[0].TaskSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="TaskCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Task Id</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTask[0].TaskCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTask[0].Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTask[0].Description}} </td>
-                    </ng-container>
+                <ng-container *ngIf="count=='task'|| count=='empty'; then TaskBlock; else NotTaskBlock">
+                </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsT"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsT;"></tr>
-                </table>
-            </div><br>
-        </div>
-    </div>
-    <div id="wrapper">
-        <br>
-    </div>
-    <div id="wrapper">
-        <div class="user-table" id="first">
-            <p>TEST CASE</p>
+                <ng-template #TaskBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceT1">
+                            <ng-container matColumnDef="TaskSource">
+                                <th mat-header-cell *matHeaderCellDef>Task Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask(element.MappedTestCase, element.MappedBugs, element.MappedUser)">{{element.TaskSource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="TaskCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Task Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask(element.MappedTestCase, element.MappedBugs, element.MappedUser)"> {{element.TaskCaseId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask(element.MappedTestCase, element.MappedBugs, element.MappedUser)"> {{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask(element.MappedTestCase, element.MappedBugs, element.MappedUser)"> {{element.Description}}</button>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsT"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsT;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+                <ng-template #NotTaskBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceT">
+                            <ng-container matColumnDef="TaskSource">
+                                <th mat-header-cell *matHeaderCellDef>Task Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask(element.MappedTestCase, element.MappedBugs, element.MappedUser)">{{element.TaskSource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="TaskCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Task Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask()"> {{element.TaskCaseId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask()"> {{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTask()"> {{element.Description}}</button>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsT"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsT;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+            </div>
             <br>
-            <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceUS">
-                    <ng-container matColumnDef="TestCaseSource">
-                        <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.MappedTestCase[0].TestCaseSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="TestCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Test Case Id</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTestCase[0].TestCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTestCase[0].Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedTestCase[0].Description}} </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsTC"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsTC;"></tr>
-                </table>
-            </div><br>
-
-        </div>
-
-
-
-
-
-
-        <div class="user-table" id="first">
-            <p>BUGS</p>
-            <br>
-            <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceUS">
-                    <ng-container matColumnDef="BugsSource">
-                        <th mat-header-cell *matHeaderCellDef>Bugs Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.MappedBugs[0].BugsSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="BugsCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Bugs ID</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedBugs[0].BugsCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedBugs[0].Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.MappedBugs[0].Description}} </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsB"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsB;"></tr>
-                </table>
-            </div><br>
-
         </div>
     </div>
-</div>
 
-<div class="full" *ngIf="mtc">
-    <div id="wrapper">
-        <div class="user-table" id="first">
-            <p>USER STORIES</p>
-            <br>
-            <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceUS">
-                    <ng-container matColumnDef="UserStorySource">
-                        <th mat-header-cell *matHeaderCellDef>User Story Source</th>
-                        <td mat-cell *matCellDef="let element"><button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStorySource}}</button> </td>
-                    </ng-container>
-                    <ng-container matColumnDef="UserStoryId">
-                        <th mat-header-cell *matHeaderCellDef>User Story Id</th>
-                        <td mat-cell *matCellDef="let element">
-                            <button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.UserStoryId}}</button>
-                        </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"><button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Title}} </button></td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> <button mat-button (click)="updateTC(element.MappedTestCase, element.MappedBugs, element.MappedTask)">{{element.Description}}</button> </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUS"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUS;"></tr>
-                </table>
-            </div><br>
-        </div>
-        <div class="user-table" id="first">
-            <p>TASKS</p>
-            <br>
-            <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceT">
-                    <ng-container matColumnDef="TaskSource">
-                        <th mat-header-cell *matHeaderCellDef>Task Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.TaskSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="TaskCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Task Id</th>
-                        <td mat-cell *matCellDef="let element"> {{element.TaskCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsT"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsT;"></tr>
-                </table>
-            </div><br>
-        </div>
-    </div>
-    <div id="wrapper">
-        <br>
-    </div>
     <div id="wrapper">
         <div class="user-table" id="first">
             <p>TEST CASE</p>
             <br>
             <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceTC">
-                    <ng-container matColumnDef="TestCaseSource">
-                        <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.TestCaseSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="TestCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Test Case Id</th>
-                        <td mat-cell *matCellDef="let element"> {{element.TestCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsTC"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsTC;"></tr>
-                </table>
-            </div><br>
+                <ng-container *ngIf="count=='test'|| count=='empty'; then TestBlock; else NotTestBlock">
+                </ng-container>
+                <ng-template #TestBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceTC1">
+                            <ng-container matColumnDef="TestCaseSource">
+                                <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.TestCaseSource}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="TestCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Test Case Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.TestCaseId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsTC"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsTC;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+                <ng-template #NotTestBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceTC">
+                            <ng-container matColumnDef="TestCaseSource">
+                                <th mat-header-cell *matHeaderCellDef>Test Case Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.TestCaseSource}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="TestCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Test Case Id</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.TestCaseId}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateTest(element.MappedTask, element.MappedBugs, element.MappedUser)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsTC"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsTC;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+            </div>
+            <br>
 
         </div>
-
-
-
-
-
 
         <div class="user-table" id="first">
             <p>BUGS</p>
             <br>
             <div class="example-container ">
-                <table mat-table [dataSource]="dataSourceB">
-                    <ng-container matColumnDef="BugsSource">
-                        <th mat-header-cell *matHeaderCellDef>Bugs Source</th>
-                        <td mat-cell *matCellDef="let element">{{element.BugsSource}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="BugsCaseId">
-                        <th mat-header-cell *matHeaderCellDef>Bugs ID</th>
-                        <td mat-cell *matCellDef="let element"> {{element.BugsCaseId}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Title">
-                        <th mat-header-cell *matHeaderCellDef>Title</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Description">
-                        <th mat-header-cell *matHeaderCellDef>Description</th>
-                        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumnsB"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumnsB;"></tr>
-                </table>
-            </div><br>
+                <ng-container *ngIf="count=='bugs'|| count=='empty'; then BugBlock; else NotBugBlock">
+                </ng-container>
+                <ng-template #BugBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceB1">
+                            <ng-container matColumnDef="BugsSource">
+                                <th mat-header-cell *matHeaderCellDef>Bugs Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.BugsSource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="BugsCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Bugs ID</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.BugsCaseId}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsB"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsB;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+                <ng-template #NotBugBlock>
+                    <div>
+                        <table mat-table [dataSource]="dataSourceB">
+                            <ng-container matColumnDef="BugsSource">
+                                <th mat-header-cell *matHeaderCellDef>Bugs Source</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.BugsSource}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="BugsCaseId">
+                                <th mat-header-cell *matHeaderCellDef>Bugs ID</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.BugsCaseId}} </button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Title">
+                                <th mat-header-cell *matHeaderCellDef>Title</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.Title}}</button>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Description">
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-button (click)="updateBugs(element.MappedTask, element.MappedTestCase, element.MappedUser)">{{element.Description}}</button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsB"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsB;"></tr>
+                        </table>
+                    </div>
+                </ng-template>
+            </div>
+            <br>
 
         </div>
     </div>

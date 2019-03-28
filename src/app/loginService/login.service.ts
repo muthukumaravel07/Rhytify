@@ -11,29 +11,41 @@ import 'rxjs/add/operator/map';
   }
 )
 export class LoginService {
-
-
-  URL = 'http://172.20.206.83/RhytifyAPI/api/token'; /* 'http://172.20.126.27:3000/auth'; */  /* 'http://httpbin.org/post'; */ 
-  URLCompanies = 'http://172.20.206.83/RhytifyAPI/api/login'; /* 'http://172.20.126.16/RhytifyAPI/api/login'; */ /* './assets/login.json'; */
-  URLConfig = 'http://172.20.206.83/RhytifyAPI/api/configurations'; /* 'http://172.20.126.16/RhytifyAPI/api/configurations'; */ /* './assets/configurations.json'; */
-  URLProjectSummary = 'http://172.20.206.83/RhytifyAPI/api/projectsummary';/* 'http://172.20.126.16/RhytifyAPI/api/projectSummary'; */ /* './assets/projectSummary.json'; */
-  URLuserStories = 'http://172.20.206.83/RhytifyAPI/api/userstories'; /* 'http://172.20.126.16/RhytifyAPI/api/userStories'; */ /* './assets/userStories.json'; */
-  URLtasks = 'http://172.20.206.83/RhytifyAPI/api/tasks'; /* 'http://172.20.126.16/RhytifyAPI/api/tasks'; */ /* './assets/tasks.json'; */
-  URLtestCases = 'http://172.20.206.83/RhytifyAPI/api/testcases'; /* 'http://172.20.126.16/RhytifyAPI/api/testCases'; */ /* './assets/testCases.json'; */
-  URLsourceCode = 'http://172.20.206.83/RhytifyAPI/api/sourcecode'; /* 'http://172.20.126.16/RhytifyAPI/api/sourceCode'; */ /* './assets/sourceCode.json'; */
-  URLMapping= 'http://172.20.206.83/RhytifyAPI/api/mapping';/* './assets/mapping.json'; */
-  URLexecution = 'http://172.20.206.83/RhytifyAPI/api/masterData'; /* './assets/execution.json'; */
-
+  
+  URL =   /* 'http://httpbin.org/post'; */ 'http://172.20.204.82/RhytifyAPI/api/token';
+  URLCompanies = 'http://172.20.204.82/RhytifyAPI/api/login'; /* './assets/login.json'; */
+  URLConfig = 'http://172.20.204.82/RhytifyAPI/api/configurations'; /* './assets/configurations.json'; */
+  URLProjectSummary = 'http://172.20.204.82/RhytifyAPI/api/projectsummary'; /* './assets/projectSummary.json'; */
+  URLuserStories = 'http://172.20.204.82/RhytifyAPI/api/userstories'; /* './assets/userStories.json'; */
+  URLtasks = 'http://172.20.204.82/RhytifyAPI/api/tasks'; /* './assets/tasks.json'; */
+  URLtestCases = 'http://172.20.204.82/RhytifyAPI/api/testcases'; /* './assets/testCases.json'; */
+  URLsourceCode = 'http://172.20.204.82/RhytifyAPI/api/sourcecode'; /* './assets/sourceCode.json'; */
+  URLMapping= 'http://172.20.204.82/RhytifyAPI/api/mapping';/* './assets/mapping.json'; */
+  URLexecution = 'http://172.20.204.82/RhytifyAPI/api/masterData'; /* './assets/execution.json'; */
+  URLMappingTask= 'http://172.20.204.82/RhytifyAPI/api/mappingtask';/* './assets/mappingtask.json'; */
+  URLMappingTest= 'http://172.20.204.82/RhytifyAPI/api/mappingtest'; /* './assets/mappingtest.json'; */
+  URLMappingBugs='http://172.20.204.82/RhytifyAPI/api/mappingbugs';/* './assets/mappingbug.json'; */
 
   constructor(private http: HttpClient, private cookie: CookieService) { }
-getmapping(){
-    return this.http.get(this.URLMapping);
 
+  
+  getmapping(){
+    return this.http.get(this.URLMapping);
+  }
+  getmappingtask(){
+    return this.http.get(this.URLMappingTask);
+  }
+  getmappingtest(){
+    return this.http.get(this.URLMappingTest);
+  }
+  getmappingbugs(){
+    return this.http.get(this.URLMappingBugs);
   }
   getCompanies(): Observable<any> {
     return this.http.get(this.URLCompanies);
   }
   getConfig(): Observable<any> {
+    console.log();
     return this.http.get(this.URLConfig);
   }
   getHome(): Observable<any> {
@@ -41,9 +53,9 @@ getmapping(){
   }
 
   login(companyLocation, project, username, password) {
+    
     return this.http.post(this.URL, { 'companyLocation': companyLocation, 'project': project, 'username': username, 'password': password });
   }
-
   loggedIn() {
     return !!this.cookie.get('jwtToken');
   }
